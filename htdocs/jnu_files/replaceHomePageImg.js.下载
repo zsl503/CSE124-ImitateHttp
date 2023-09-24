@@ -1,0 +1,10 @@
+// 页面加载完成后执行
+$(function(){
+	// 当教学科研第三条没有图片时替换成站群的默认图片
+	var teaching_research_img = $("#teaching_research").attr("src");
+	if (teaching_research_img == "") {
+		$("#teaching_research").attr("src","/_upload/tpl/00/f5/245/template245/images/home/default2.jpg");
+	}
+	
+
+});

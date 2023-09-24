@@ -1,0 +1,148 @@
+$(function () {
+  $(".wrap-content .leftListNav ul li a").each(function () {
+    if ($(this).text() == "高层人才") {
+      $(this).css("display", "none")
+    }
+    if ($(this).text() == "学校风景") {
+      $(this).css("display", "none")
+    }
+    if ($(this).text() == "成果荟萃") {
+      $(this).css("display", "none")
+    }
+  });
+
+ //去除导航栏目
+      $(".menuNav .container .row").find("li").each(function (index, el) {
+        var livar = $(this).find('a').html();
+        if (livar == "" || livar == "大学章程" || livar == "摘要") {
+          $(this).remove();
+        }
+      });
+
+  $(".menuNav .container .row").find("li").each(function (index, el) {
+    var livar = $(this).find('a').html();
+    if (livar == "实用信息" || livar == "学生活动" || livar == "心理健康" || livar == "后勤服务" || livar == "网络服务" || livar == "校园地图" || livar == "校园风光") {
+      $(this).find('a').attr('href', "https://www.jnu.edu.cn/2520/list.htm?username=" + livar)
+    }
+  });
+
+  $(".smallHeader .quickLink ul li").each(function () {
+  console.log('321',$(this).index() )
+    if ($(this).index() == 4) {
+  console.log(123)
+      $(this).remove();
+    }
+  });
+
+  $(".smallHeader .quickLink ul li a").each(function () {
+    console.log($(this).text());
+    if ($(this).text() == "门户") {
+      $(this).css("display", "none")
+    }
+    if ($(this).text() == "会议") {
+      $(this).css("display", "none")
+    }
+    if ($(this).text() == "通知") {
+      $(this).css("display", "none")
+    }
+  });
+
+  $(".menuNav .menuBlock ul li a").each(function () {
+    if ($(this).text() == "学校风景") {
+      $(this).css("display", "none")
+    }
+    if ($(this).text() == "成果荟萃") {
+      $(this).css("display", "none")
+    }
+  });
+  //给footer的logo添加微博微信logo
+  $(".footRight").find('a').addClass('btlogo').find('img').addClass('img-responsive');
+  var astr = unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript   src='https://dcs.conac.cn/js/33/000/0000/60767175/CA330000000607671750001.js' type='text/javascript'%3E%3C/script%3E");
+  var str = '<ul class="identify"><li><a href="" target="_blank"><img src="https://www.jnu.edu.cn/_upload/tpl/00/f5/245/template245/images/home/wx.png"></a></li>' +
+    '<li><a href="https://weibo.com/jnunews" target="_blank"><img src="https://www.jnu.edu.cn/_upload/tpl/00/f5/245/template245/images/home/wb.png"></a></li>' +
+    '<li>\
+            <span id="_ideConac">\
+                <a href="https://www.jnu.edu.cn/redirect/conac.html" target="_blank">\
+                    <img id="imgConac" vspace="0" hspace="0" border="0" src="https://www.jnu.edu.cn/_upload/tpl/00/f5/245/template245/images/blue.png" data-bd-imgshare-binded="1">\
+                </a>\
+            </span>\
+        </li>'+
+    '</ul>';
+  $(".footRight").append(str);
+
+  //顶部右边导航
+  var num = $(".header-right>li").length;
+  $(".header-right>li").each(function (index, el) {
+    //给倒数第二个li标签添加|符号
+    if (index == (num - 3)) {
+      $(el).after('<li>|</li>');
+    }
+    if (index == (num - 4)) {
+      $(el).after('<li>|</li>');
+    }
+    //给倒数第一个li标签添字体变红
+    if (index == 0) {
+      //$(el).find("a").css("color","red");
+    }
+  });
+
+  $('.dd-arrow').click(function () {
+    $("#lang-phone").css({
+      "background": "none",
+      "color": "#252525",
+    });
+  });
+  $("#lang-phone").parent("a").click(function () {
+    if ($(this).hasClass('active')) {
+      $("#lang-phone").css({
+        "background": "none",
+        "color": "#252525",
+      });
+    } else {
+      $("#lang-phone").css({
+        "background": "rgba(237, 115, 63, 0.9) none repeat scroll 0 0",
+        "color": "white",
+      });
+    }
+  });
+
+  //语言版本切换
+  zh_getLang();
+  var langval = getCookie('zh_choose');
+  switch (langval) {
+    case 's':
+      showzht(); break;
+    case 't':
+      showzhs(); break;
+    default:
+      showzht(); break;
+  }
+  $("#zh_click_s").click(function () {
+    showzht();
+  });
+  $("#zh_click_t").click(function () {
+    showzhs();
+  });
+  $("#zh_s").click(function () {
+    showzht();
+  });
+  $("#zh_t").click(function () {
+    showzhs();
+  });
+});
+function showzhs() {
+  $("#zh_click_s").html("简体中文");
+  $("#zh_s").html("简体中文");
+  $("#zh_click_s").parent('li').css("display", "block");
+  $("#zh_click_t").parent('li').css("display", "none");
+  $("#zh_s").parent('li').css("display", "block");
+  $("#zh_t").parent('li').css("display", "none");
+}
+function showzht() {
+  $("#zh_click_t").html("繁体中文");
+  $("#zh_t").html("繁体中文");
+  $("#zh_click_s").parent('li').css("display", "none");
+  $("#zh_click_t").parent('li').css("display", "block");
+  $("#zh_s").parent('li').css("display", "none");
+  $("#zh_t").parent('li').css("display", "block");
+}
