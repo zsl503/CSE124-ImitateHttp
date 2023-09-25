@@ -19,6 +19,7 @@ void start_httpd(unsigned short port, std::string doc_root);
 /**
  * @brief 处理客户端socket连接请求，接收并回复来自客户端的http报文
  * @param client_socket socket文件描述符
+ * @param sockaddr_in 客户端地址
  */
 void handle_client(int client_socket, struct sockaddr_in client_address);
 

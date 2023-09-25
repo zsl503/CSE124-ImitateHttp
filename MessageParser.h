@@ -13,7 +13,6 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
-using namespace std;
 
 class MessageParser
 {
@@ -24,8 +23,8 @@ public:
     bool empty() const;
 
 private:
-    string receivedMessage = "";
-    queue<HttpBuilder> httpQueue;
+    std::string receivedMessage = "";
+    std::queue<HttpBuilder> httpQueue;
 
     // 0表示文件头接收已完成，大于0表示需要接收body的大小
     size_t needSize = 0;

@@ -30,6 +30,8 @@ Rule::Rule(bool isAllow, const std::string &item) : isAllow(isAllow)
         } else {
             try {
                 int m = stoi(item.substr(pos + 1));
+
+                // ip in sockaddr_in is reversed
                 this->mask = 0xffffffff >> (32 - m);
             } catch (invalid_argument &e) {
                 throw invalid_argument("invalid rule: invalid mask: " + s);

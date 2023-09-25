@@ -1,5 +1,6 @@
 #include "MessageParser.h"
 #include <iostream>
+using std::string;
 
 void MessageParser::pushMsg(const char *msg)
 {
@@ -44,8 +45,8 @@ HttpBuilder MessageParser::popHttp()
 {
     // TODO: insert return statement here
     if (empty()) {
-        cerr << "queue is empty" << endl;
-        throw exception();
+        std::cerr << "queue is empty" << std::endl;
+        throw std::exception();
     } else {
         HttpBuilder tmp = httpQueue.front();
         httpQueue.pop();

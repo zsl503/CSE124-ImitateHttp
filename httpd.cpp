@@ -16,6 +16,9 @@
 #include <unistd.h>
 
 using std::string;
+using std::endl;
+using std::cout;
+using std::stringstream;
 
 #define THREAD_NUM 200
 
@@ -57,7 +60,7 @@ bool vaildUrl(const string &url)
 {
     stringstream ss(url);
     string line;
-    stack<string> s;
+    std::stack<string> s;
 
     getline(ss, line, '/');
     while (getline(ss, line, '/')) {
@@ -125,7 +128,7 @@ void handle_request(int client_socket, const HttpBuilder h)
             try {
                 resp = handle_file(h.getUrl().addr);
             } catch (const std::exception &e) {
-                cerr << "catch:" << e.what();
+                std::cerr << "catch:" << e.what();
                 resp = HttpBuilder::getNotFound(h.getUrlStr());
             }
     } else
@@ -199,7 +202,7 @@ void start_httpd(unsigned short port, string doc_root)
         doc_root = doc_root.substr(0, doc_root.size() - 1);
     DOC_ROOT = doc_root;
 
-    cerr << "Starting server (port: " << port << ", doc_root: " << doc_root << ")" << endl;
+    std::cerr << "Starting server (port: " << port << ", doc_root: " << doc_root << ")" << endl;
 
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -229,7 +232,7 @@ void start_httpd(unsigned short port, string doc_root)
 
     struct sockaddr_in client_address;
     int cnt = 0;
-    thread th[THREAD_NUM];
+    std::thread th[THREAD_NUM];
     RULE_LIST = RuleList::getFromFile(doc_root + "/.htaccess");
     if (RULE_LIST == nullptr)
         std::cerr << "Can't open or read the .htaccess file" << endl;
@@ -243,7 +246,7 @@ void start_httpd(unsigned short port, string doc_root)
             inet_ntop(AF_INET, &client_address.sin_addr, ip, INET_ADDRSTRLEN);
             cout << "Accept a connection from: " << ip << ":" << ntohs(client_address.sin_port) << endl;
 
-            th[cnt++] = thread(handle_client, clifd, client_address);
+            th[cnt++] = std::thread(handle_client, clifd, client_address);
             // handle_client(clifd);
             // pthread_t client_thread;
             // pthread_create(&client_thread, NULL, (void *(*)(void *))handle_client, (void *)clifd);
