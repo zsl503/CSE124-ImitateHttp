@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://www.jnu.edu.cn/main.htm -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+    <meta name="force-rendering" content="webkit">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>暨南大学-华侨最高学府-国家“双一流”建设高校</title>  
+    <meta name="keywords" content="暨南大学,华侨,211工程,综合性大学,教育,研究生,博士,教授,院士">
+<meta name="description" content="暨南大学;华侨最高学府;国家211工程重点综合性大学;广东;广州;人才">
+
+<link type="text/css" href="./jnu_files/system.css" rel="stylesheet">
+<link type="text/css" href="./jnu_files/1.css" rel="stylesheet">
+<link type="text/css" href="./jnu_files/96.css" rel="stylesheet">
+<link type="text/css" href="./jnu_files/sudyNav.css" rel="stylesheet">
+
+
+<script language="javascript" src="./jnu_files/sudy-jquery-autoload.js.下载" jquery-src="/_js/jquery-1.9.1.min.js" sudy-wp-context="" sudy-wp-siteid="85"></script><script type="text/javascript" src="./jnu_files/jquery-1.9.1.min.js.下载"></script>
+<script language="javascript" src="./jnu_files/jquery-migrate.min.js.下载"></script>
+<script language="javascript" src="./jnu_files/jquery.sudy.wp.visitcount.js.下载"></script>
+<script type="text/javascript" src="./jnu_files/jquery.sudyNav.js.下载"></script>
+<link href="https://www.jnu.edu.cn/_upload/tpl/00/f5/245/template245/images/logo.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./jnu_files/bootstrap.min.css">
+    <link href="./jnu_files/jquery.bxslider.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./jnu_files/style.css">  
+    <link rel="stylesheet" type="text/css" href="./jnu_files/jcarousel-connected-carousels.css">
+    <!--[if lte IE 9]>
+    <script src="/_upload/tpl/00/f5/245/template245/bootstrap/js/html5shiv.min.js"></script>
+    <script src="/_upload/tpl/00/f5/245/template245/bootstrap/js/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/_upload/tpl/00/f5/245/template245/css/ie8.css">  
+    <![endif]-->
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <!-- <link rel="stylesheet" href="/_upload/tpl/00/f5/245/template245/bootstrap/css/bootstrap-theme.min.css"> -->
+    <link custom="self" rel="stylesheet" href="./jnu_files/bootstrap-theme.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="./jnu_files/public1.css">    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./jnu_files/bootstrap.min.js.下载"></script>
+    <!-- 轮播插件 -->
+    <script src="./jnu_files/jquery.bxslider.min.js.下载"></script> 
+    <!-- 通用js -->
+    <!-- <script type="text/javascript" src="/_upload/tpl/00/f5/245/template245/js/responsive1.js"></script> -->
+    <!-- <script src="/_upload/tpl/00/f5/245/template245/js/jquery.easing.compatibility.js"></script>  --> 
+    <script type="text/javascript" src="./jnu_files/store.js.下载"></script>
+
+<script src="./jnu_files/grayscale.js.下载"></script>
+<script src="./jnu_files/gray.js.下载"></script>
+
+    <script type="text/javascript">
+        $(function(){ 
+
+            //----> remove css link on body begin
+               $('body>link').remove();
+            //----> remove css link on body end.
+            //调整时间格式
+            $(".media-left").find("h3").each(function(index,el){
+                var time = $.trim($(this).html());
+                var dd = time.substr(8,2);
+                $(this).html(dd);
+            });
+            $(".media-left").find("p").each(function(index,el){
+                var time = $.trim($(this).html());
+                var MM = time.substr(5,2);
+                var YY = time.substr(0,4);
+                var val = YY+'.'+MM;
+                $(this).html(val);
+            });
+            $("li[class='nowrapList']").find("span").each(function(index,el){
+                var time = $.trim($(this).html());
+                var MM = time.substr(5,2);
+                var dd = time.substr(8,2);
+                var val = MM+'-'+dd;
+                $(this).html(val);
+            });
+            $(".xxxwtime").each(function(index,el){
+                var time = $.trim($(this).html());
+                var val = time.substr(0,10);
+                $(this).html(val);
+            });
+            // hack 苏迪 tag with frag=面板n
+            $("div[frag^='面板']").each(function(idx,el){
+                $(el).replaceWith($(el).html());
+            });
+            // hack 苏迪 tag with frag=窗口n
+            $("div[frag^='窗口']").each(function(idx,el){
+                $(el).replaceWith($(el).html());
+            }); 
+            $("div[frag^='窗口内容']").each(function(idx,el){
+                $(el).replaceWith($(el).html());
+            }); 
+            //顶部导航
+            $("#wp_nav_w26").each(function(idx,el){
+                $(el).replaceWith($(el).html());
+            }); 
+            $("#wp_nav_w27").each(function(idx,el){
+                $(el).replaceWith($(el).html());
+            }); 
+            $('#wp_nav_w32').replaceWith($('#wp_nav_w32').html());
+            //去除导航栏目
+            $(".container .row").find("li").each(function(index,el){
+                var livar = $(this).find('a').html();
+                if(livar=="摘要" || livar=="校园地图1"){
+                   $(this).remove();
+                }
+          });
+
+             $(".menuNav .container .row").find("li").each(function (index, el) {
+    var livar = $(this).find('a').html();
+    if (livar == "实用信息" || livar == "学生活动" || livar == "心理健康" || livar == "后勤服务" || livar == "网络服务" || livar == "校园地图" || livar == "校园风光") {
+       $(this).find('a').attr('href', "https://www.jnu.edu.cn/2520/list.htm?username=" + livar)
+    }
+  });
+
+          $("link[href='/_js/_portletPlugs/simpleNews/css/simplenews.css']").remove();
+        });
+    </script>
+    <script type="text/javascript" src="./jnu_files/topnav.js.下载"></script>
+
+    <!--[if lte IE 8]>  
+    <script type="text/javascript" src="/_upload/tpl/00/f5/245/template245/js/ie8_hack.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('.card-video').remove();    
+
+        $(".logo img").css("display","none");
+        $(".logo span").css("display","block");
+        $(".logo span").find("img").css("display","block");
+        $(".logo span").parent().css("display","block");
+
+
+      });
+    </script>  
+    <![endif]--> 
+</head>
+
+
+<body>
+
+<!-- 视频开始 -->
+<!--
+<div class="card-video">
+    <div class="card-video-content">
+        <img src="/_upload/tpl/00/f5/245/template245/images/home/logo2.png"/>
+    </div>
+    <div class="card-video-wrap">
+        <video class="runningJnu" id="running-jnu" autoplay="autoplay" data-height="1080" data-width="1920">
+            <source src="/_upload/tpl/00/f5/245/template245/images/running.mp4" type="video/mp4"/>
+        </video>
+    </div>
+</div>
+-->
+<!-- 视频结束 -->
+<div class="wrap">
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <ul class="header-left" style="display:none;">
+                            
+                                
+                                    
+                                          
+                                        
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2849/list.htm">报考学生</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2850/list.htm">在校生</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2851/list.htm">教职员</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2852/list.htm">家长|访客</a>
+                                        </li>
+                                          
+                                        
+                                    
+                                
+                            
+                        </ul>
+                        <ul class="header-right">
+                            
+                                
+                                                                            
+                                                                                                                                                                <li>
+                                            <a href="https://info.jnu.edu.cn/">
+                                                新门户
+                                            </a>
+                                        </li>
+                                                                                                                                                                <li>
+                                            <a href="https://mail.jnu.edu.cn/">
+                                                邮件
+                                            </a>
+                                        </li>
+                                                                                                                                                                <li>
+                                            <a href="https://ehall.jnu.edu.cn/">
+                                                网上服务大厅
+                                            </a>
+                                        </li><li>|</li>
+                                                                                                                                                                <li>
+                                            <a href="https://lib.jnu.edu.cn/">
+                                                图书馆
+                                            </a>
+                                        </li><li>|</li>
+                                                                                                                                                                <li id="en">
+                                            <a href="https://english.jnu.edu.cn/">English<span class="glyphicon glyphicon-chevron-down"></span></a>
+                                            <ul>
+                                                                                                <li style="display: none;">
+                                                                                                            <a href="javascript:zh_tran(&#39;s&#39;);" class="zh_click" id="zh_click_s">中文简体</a>
+                                                                                                    </li>
+                                                                                                <li style="display: block;">
+                                                                                                            <a href="javascript:zh_tran(&#39;t&#39;);" class="zh_click" id="zh_click_t">繁体中文</a>
+                                                                                                    </li>
+                                                                                            </ul>
+                                        </li>
+                                                                                                                                                            
+                                
+                            
+                            <li id="form_Search_itme">
+                                <a id="form_Search_a" href="javascript:void(0)" class="glyphicon glyphicon-search btn searchlogo"></a>
+                                <div class="searchDIV" style="display:none ;">
+                                    <form name="formSearch" method="POST" action="https://www.jnu.edu.cn/_web/_search/api/search/new.rst?locale=zh_CN&amp;request_locale=zh_CN&amp;_p=YXM9ODUmdD0yNDUmZD03NTMmcD0xJm09TiY_">
+                                        <a id="form_SearchGo" href="https://www.jnu.edu.cn/main.htm" class=" glyphicon glyphicon-search btn searchlogo" title="Search"></a><input id="form_Searchword" name="keyword" class="searchinp" onfocus="" onblur="" placeholder="搜索..." type="text">
+                                    </form><a href="javascript:void(0);" class="closeSearch"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="logo">
+                        
+                            
+                                
+                                    <!-- <a href="/main.htm"><img src="/_upload/tpl/00/f5/245/template245/images/home/logo2.svg"/></a>-->
+                                    <a href="https://www.jnu.edu.cn/main.htm">
+                                        <span style="display:none;padding-top:13px;">
+                                            <img xlink:href="/_upload/tpl/00/f5/245/template245/images/home/logo2.svg" src="./jnu_files/logo.png">
+                                        </span>
+                                        <img src="./jnu_files/logo2.svg" style="height:90px;">
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+        
+                            <div class="menuNav">
+                    <div class="menu" idx="2">
+                        <ul id="nav">
+                            <!--<li class="on"><a href="">学校概况</a></li><li class="on"><a href="">组织机构</a></li><li class="on"><a href="">人才培养</a></li><li class="on"><a href="">人才招聘</a><div class="arrow-top"></div></li><li class="on"><a href="">科学研究</a></li><li class="on"><a href="">合作交流</a></li><li class="on"><a href="">学生园地</a></li><li class="on"><a href="">百年侨教</a></li>-->
+
+                            <li class="on">
+                                <a href="https://www.jnu.edu.cn/2514/list.htm" cid="2514">关于暨大</a>                            </li>                            <li class="on">
+                                <a href="https://www.jnu.edu.cn/2570/list.htm" cid="2515">机构设置</a>                            </li>                            <li class="on">
+                                <a href="javascript:;" cid="3120">招生就业</a>                            </li>                            <li class="on">
+                                <a href="javascript:;" cid="2516">教育教学</a>                                <div class="arrow-top" style="left: 691px;"></div>                            </li>                            <li class="on">
+                                <a href="javascript:;" cid="2518">科学研究</a>                            </li>                            <li class="on">
+                                <a href="javascript:;" cid="2519">交流合作</a>                            </li>                            <li class="on">
+                                <a href="javascript:;" cid="2517">人才招聘</a>                            </li>                            <li class="on">
+                                <a href="https://www.jnu.edu.cn/2520/list.htm" cid="2520">校园生活</a>                            </li>                        </ul>
+                    </div>
+                    <div class="menuBlock navBlock" style="background: url(&quot;/_upload/tpl/00/f5/245/template245//images/home/nav-left.jpg&quot;) right center no-repeat rgb(255, 255, 255); height: 320px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; display: none;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 navList pd280">
+                                                                        <ul>
+                                                                                <li class="">
+                                            <a href="https://www.jnu.edu.cn/2561/list.htm" ccid="2561">学校简介</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2566/list.htm" ccid="2566">学校章程</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2562/list.htm" ccid="2562">领导致辞</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://dsh.jnu.edu.cn/" ccid="2563">董事会</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2564/list.htm" ccid="2564">现任领导</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2565/list.htm" ccid="2565">历任领导</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/bxsj/list.htm" ccid="36385">办学数据</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2567/list.htm" ccid="2567">暨南文化</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/xxfj/list.htm" ccid="3089" style="display: none;">学校风景</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://www.jnu.edu.cn/2570/list.htm" ccid="2570">管理服务</a> 
+                                        </li>                                        <li class="">
+                                            <a href="http://www.jnu.edu.cn/35777/list.htm" ccid="2571">院系设置</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://panyu.jnu.edu.cn/" ccid="2573">番禺校区</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://zh.jnu.edu.cn/" ccid="2572">珠海校区</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://sz.jnu.edu.cn/" ccid="23021">深圳校区</a> 
+                                        </li>                                    </ul>                                    <ul class="">
+                                                                                <li class="">
+                                            <a href="https://zsb.jnu.edu.cn/" ccid="3122">本科生招生</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://yz.jnu.edu.cn/" ccid="3123">研究生招生</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://hwy.jnu.edu.cn/13405/main.htm" ccid="3128">预科招生</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://jyxy.jnu.edu.cn/" ccid="3124">继续教育招生</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://career.jnu.edu.cn/" ccid="3121">就业服务</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://faculty.jnu.edu.cn/" ccid="2574">师资队伍</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://jwc.jnu.edu.cn/" ccid="2576">本科生教育</a> 
+                                        </li>                                        <li class="">
+                                            <a href="http://gs.jnu.edu.cn/" ccid="2575">研究生教育</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://jyxy.jnu.edu.cn/" ccid="2578">继续教育</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://hwy.jnu.edu.cn/" ccid="2595">华文教育</a> 
+                                        </li>                                        <li class="">
+                                            <a href="http://cyxy.jnu.edu.cn/" ccid="6308">创新创业教育</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://kjc.jnu.edu.cn/" ccid="36251">自然科学研究</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://skc.jnu.edu.cn/" ccid="36253">人文社科研究</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2582/list.htm" ccid="2582">平台机构</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2585/list.htm" ccid="2585">学术期刊</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/jxky/list.htm" ccid="3137" style="display: none;">成果荟萃</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://wsc.jnu.edu.cn/" ccid="2586">国际交流</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/main.htm#" ccid="36431">港澳台工作</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://gccgl.jnu.edu.cn/jnuzpf/a/zp/base/Index" ccid="3132">高层次人才引进</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://hrdam.jnu.edu.cn/343/list.htm" ccid="2915">博士后招聘</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://zhaopin.jnu.edu.cn/" ccid="36255">行政教辅招聘</a> 
+                                        </li>                                    </ul>                                    <ul>
+                                                                                <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E5%AE%9E%E7%94%A8%E4%BF%A1%E6%81%AF" ccid="36421">实用信息</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E5%AD%A6%E7%94%9F%E6%B4%BB%E5%8A%A8" ccid="2593">学生活动</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7" ccid="36423">心理健康</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E5%90%8E%E5%8B%A4%E6%9C%8D%E5%8A%A1" ccid="36425">后勤服务</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1" ccid="3097">网络服务</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E6%A0%A1%E5%9B%AD%E5%9C%B0%E5%9B%BE" ccid="36427">校园地图</a> 
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/2520/list.htm?username=%E6%A0%A1%E5%9B%AD%E9%A3%8E%E5%85%89" ccid="36429">校园风光</a> 
+                                        </li>                                                                            </ul>                                </div>
+                            </div>
+                        </div>
+                        <div class="text-bg" style="width:468.5px;">
+                            <img src="./jnu_files/zh.png">
+                        </div>
+                    </div>
+                </div>
+            
+        
+    <!-- small nav -->
+    <div class="smallHeader smallHeader navbar-fixed-top">
+        <div class="smallMenu">
+            <ul>
+                <li class="menu1">
+                    <img src="./jnu_files/menu.png" onclick="openShutManager(this,&#39;box1&#39;,false,&#39;点击关闭&#39;,&#39;点击展开&#39;)" id="menu">
+                </li>
+                <li class="smallLogo">
+                    
+                        
+                            
+                                <a href="https://www.jnu.edu.cn/main.htm" title="首页" rel="home" id="logo"><img src="./jnu_files/logo.png" alt="首页"></a>
+                            
+                        
+                    
+                </li>
+                <li class="loupe" id="search">
+                    <img src="./jnu_files/search.png">
+                </li>
+                <li class="loupe" style="position: absolute;right: 50px;padding: 0px;font-size: 18px;color: #333333;">
+                    <a href="https://english.jnu.edu.cn/" style="color:#005d6c">EN</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobileSearch">
+            <form method="POST" action="https://www.jnu.edu.cn/_web/_search/api/search/new.rst?locale=zh_CN&amp;request_locale=zh_CN&amp;_p=YXM9ODUmdD0yNDUmZD03NTMmcD0xJm09TiY_">
+                <input id="keyword" value="" class="form-control" placeholder="Search..." name="keyword" type="input"><input name="submit" class="btn btn-default" value="search" type="submit">
+            </form>
+        </div>
+        <div class="navbar-menu navbar-fixed-top" id="box1" style="display:none;">
+            <div class="role">
+                <ul>
+                    
+                        
+                            
+                                                                <li>
+                                    <a href="https://www.jnu.edu.cn/2849/list.htm">报考学生</a> 
+                                </li>                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    <a href="https://www.jnu.edu.cn/2850/list.htm">在校生</a> 
+                                </li>                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    <a href="https://www.jnu.edu.cn/2851/list.htm">教职员</a> 
+                                </li>                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    <a href="https://www.jnu.edu.cn/2852/list.htm">家长|访客</a> 
+                                </li>                                <li>
+                                    |
+                                </li>
+                            
+                        
+                    
+                </ul>
+            </div>
+            <div class="navbar-menu-info">
+                <ul>
+                    
+                        
+                            <!--
+                                 <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">关于暨大</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="/2561/list.htm">·学校简介</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2566/list.htm">·学校章程</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2562/list.htm">·领导致辞</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://dsh.jnu.edu.cn/">·董事会</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2564/list.htm">·现任领导</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2565/list.htm">·历任领导</a>
+                                        </li>                                        <li class="">
+                                            <a href="/bxsj/list.htm">·办学数据</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2567/list.htm">·暨南文化</a>
+                                        </li>                                        <li class="">
+                                            <a href="/xxfj/list.htm">·学校风景</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">机构设置</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="/2570/list.htm">·管理服务</a>
+                                        </li>                                        <li class="">
+                                            <a href="http://www.jnu.edu.cn/35777/list.htm">·院系设置</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://panyu.jnu.edu.cn/">·番禺校区</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://zh.jnu.edu.cn">·珠海校区</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://sz.jnu.edu.cn">·深圳校区</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">教育教学</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="https://faculty.jnu.edu.cn">·师资队伍</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://jwc.jnu.edu.cn/">·本科生教育</a>
+                                        </li>                                        <li class="">
+                                            <a href="http://gs.jnu.edu.cn/">·研究生教育</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://jyxy.jnu.edu.cn/">·继续教育</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://hwy.jnu.edu.cn">·华文教育</a>
+                                        </li>                                        <li class="">
+                                            <a href="http://cyxy.jnu.edu.cn">·创新创业教育</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">人才招聘</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="https://gccgl.jnu.edu.cn/jnuzpf/a/zp/base/Index">·高层次人才引进</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://hrdam.jnu.edu.cn/343/list.htm">·博士后招聘</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://zhaopin.jnu.edu.cn">·行政教辅招聘</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">科学研究</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="https://kjc.jnu.edu.cn/">·自然科学研究</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://skc.jnu.edu.cn/">·人文社科研究</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2582/list.htm">·平台机构</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2585/list.htm">·学术期刊</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/jxky/list.htm">·成果荟萃</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">交流合作</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="https://wsc.jnu.edu.cn/">·国际交流</a>
+                                        </li>                                        <li class="">
+                                            <a href="#">·港澳台工作</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">校园生活</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="/36421/list.htm">·实用信息</a>
+                                        </li>                                        <li class="">
+                                            <a href="/2593/list.htm">·学生活动</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://xlzx.jnu.edu.cn">·心理健康</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://zwc.jnu.edu.cn">·后勤服务</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://netc.jnu.edu.cn">·网络服务</a>
+                                        </li>                                        <li class="">
+                                            <a href="/36427/list.htm">·校园地图</a>
+                                        </li>                                        <li class="">
+                                            <a href="/36429/list.htm">·校园风光</a>
+                                        </li>                                        <li class="">
+                                            <a href="/zy/list.htm">·摘要</a>
+                                        </li>                                    </ul>                                </li>                                <li>
+                                    <a href="javascript:void(0)" class="dd-arrow"> <span class="bt">语言版本</span></a>
+                                     <ul>
+                                                                                <li class="">
+                                            <a href="https://english.jnu.edu.cn/">·English</a>
+                                        </li>                                        <li class="">
+                                            <a href="https://www.jnu.edu.cn/redirect/jnu2014.html">·旧版</a>
+                                        </li>                                        <li class="">
+                                            <a href="/3174/list.htm">·中文简体</a>
+                                        </li>                                        <li class="">
+                                            <a href="/3175/list.htm">·中文繁体</a>
+                                        </li>                                    </ul>                                </li>-->
+
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">关于暨大</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2561/list.htm">学校简介</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2566/list.htm">学校章程</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2562/list.htm">领导致辞</a>
+                            </li>
+                    <li>
+                                <a href="https://dsh.jnu.edu.cn/">董事会</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2564/list.htm">现任领导</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2565/list.htm">历任领导</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/bxsj/list.htm">办学数据</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2567/list.htm">暨南文化</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/xxfj/list.htm">学校风景</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">机构设置</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2570/list.htm">管理服务</a>
+                            </li>
+                    <li>
+                                <a href="http://www.jnu.edu.cn/35777/list.htm">院系设置</a>
+                            </li>
+                    <li>
+                                <a href="https://panyu.jnu.edu.cn/">番禺校区</a>
+                            </li>
+                    <li>
+                                <a href="https://zh.jnu.edu.cn/">珠海校区</a>
+                            </li>
+                    <li>
+                                <a href="https://sz.jnu.edu.cn/">深圳校区</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">教育教学</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://faculty.jnu.edu.cn/">师资队伍</a>
+                            </li>
+                    <li>
+                                <a href="https://jwc.jnu.edu.cn/">本科生教育</a>
+                            </li>
+                    <li>
+                                <a href="http://gs.jnu.edu.cn/">研究生教育</a>
+                            </li>
+                    <li>
+                                <a href="https://jyxy.jnu.edu.cn/">继续教育</a>
+                            </li>
+                    <li>
+                                <a href="https://hwy.jnu.edu.cn/">华文教育</a>
+                            </li>
+                    <li>
+                                <a href="http://cyxy.jnu.edu.cn/">创新创业教育</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">人才招聘</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://gccgl.jnu.edu.cn/jnuzpf/a/zp/base/Index">高层次人才引进</a>
+                            </li>
+                    <li>
+                                <a href="https://hrdam.jnu.edu.cn/343/list.htm">博士后招聘</a>
+                            </li>
+                    <li>
+                                <a href="https://zhaopin.jnu.edu.cn/">行政教辅招聘</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">科学研究</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://kjc.jnu.edu.cn/">自然科学研究</a>
+                            </li>
+                    <li>
+                                <a href="https://skc.jnu.edu.cn/">人文社科研究</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2582/list.htm">平台机构</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2585/list.htm">学术期刊</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/jxky/list.htm">成果荟萃</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">交流合作</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://wsc.jnu.edu.cn/">国际交流</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/main.htm#">港澳台工作</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt">校园生活</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/36421/list.htm">实用信息</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/2593/list.htm">学生活动</a>
+                            </li>
+                    <li>
+                                <a href="https://xlzx.jnu.edu.cn/">心理健康</a>
+                            </li>
+                    <li>
+                                <a href="https://zwc.jnu.edu.cn/">后勤服务</a>
+                            </li>
+                    <li>
+                                <a href="https://netc.jnu.edu.cn/">网络服务</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/36427/list.htm">校园地图</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/36429/list.htm">校园风光</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/zy/list.htm">摘要</a>
+                            </li>
+             </ul>
+     </li>
+<li>
+        <a href="javascript:void(0)" class="dd-arrow"> 
+    <span class="bt" style="color:#252525;" id="lang-phone">语言版本</span></a>
+    
+            <ul>
+                    <li>
+                                <a href="https://english.jnu.edu.cn/">English</a>
+                            </li>
+                    <li>
+                                <a href="https://www.jnu.edu.cn/redirect/jnu2014.html">旧版</a>
+                            </li>
+                    <li style="display: none;">
+                                <a href="javascript:zh_tran(&#39;s&#39;);" class="zh_click" id="zh_s">中文简体</a>
+                            </li>
+                    <li style="display: block;">
+                                <a href="javascript:zh_tran(&#39;t&#39;);" class="zh_click" id="zh_t">繁体中文</a>
+                            </li>
+             </ul>
+     </li>
+                            
+                        
+                    
+                </ul>
+            </div>
+            <div class="quickLink">
+                <ul>
+                    
+                        
+                            
+                                                                <li>
+                                    <a href="https://mail.jnu.edu.cn/">邮件</a> 
+                                </li>                                <li>
+                                    <a href="https://www.jnu.edu.cn/tz/list.psp" style="display: none;">通知</a> 
+                                </li>                                <li>
+                                    <a href="https://www.jnu.edu.cn/gg/list.psp" style="display: none;">会议</a> 
+                                </li>                            
+                        
+                    
+                <li><a href="https://ehall.jnu.edu.cn/">网上服务大厅</a></li><li><a href="https://info.jnu.edu.cn/">新门户</a></li></ul>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <!--
+    <div class="banner">
+        <div frag="面板3">
+            <div frag="窗口3" portletmode="simpleColumnAttri">
+                <div frag="窗口内容3">
+                    <ul class="bxslider big-slider">
+                        #foreach ($ca in ${columnArticles})
+                        <li>
+                            <a href="${ca.siteArticle.article.linkUrl}">  <img src="${ca.siteArticle.article.firstImgPath}"/></a>
+  
+                        </li>#end
+                    </ul>
+                    <div id="bx-pager">
+                        <ul>
+                            #foreach ($ca in ${columnArticles})
+        #set($count = ${velocityCount} - 1)
+                            <li>
+                                <a data-slide-index="$count" href="${ca.siteArticle.article.linkUrl}"><p>
+                                    ${ca.siteArticle.article.title}
+                                </p></a>
+                            </li>#end
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    
+        
+            <!-- banner slider begin -->
+                
+<div class="hidden-xs">
+                <div class="connected-carousels">
+                    <div class="stage">
+                        <div class="carousel carousel-stage" data-jcarousel="true">
+                            <ul style="left: -4641px; top: 0px;">
+                                                                                        <li style="width: 1547px;"><a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/c0b92c32-24d5-4032-bcee-b4e747e4e598.jpg" alt="节日快乐"></a></li>
+                                                                                        <li style="width: 1547px;"><a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/b59ed7ba-5b09-4029-9fea-54cb53fad6af.jpg" alt="欢迎新同学"></a></li>
+                                                                                        <li style="width: 1547px;"><a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/3a0847dc-b2c1-4e7c-9e15-ecd1555b96b2.jpg" alt="录取通知书来啦！欢迎你跨越山海，到暨南来！"></a></li>
+                                                                                        <li style="width: 1547px;"><a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/87e7de35-d68e-459f-b930-3c4e3269bd09.jpg" alt="欢迎报考暨南大学"></a></li>
+                                                        </ul>
+                        </div>
+                        <a href="javascript:void(0)" class="prev prev-stage" data-jcarouselcontrol="true"><span>‹</span></a>
+                        <a href="javascript:void(0)" class="next next-stage" data-jcarouselcontrol="true"><span>›</span></a>
+                    </div>
+
+                    <div class="navigation">
+                        <a href="javascript:void(0)" class="prev prev-navigation" data-jcarouselcontrol="true"></a>
+                        <a href="javascript:void(0)" class="next next-navigation" data-jcarouselcontrol="true"></a>
+                        <div class="carousel carousel-navigation" data-jcarousel="true">
+                            <ul style="left: -296px; top: 0px;">
+                                                                    <li data-jcarouselcontrol="true" style="width: 296px;"><a href="https://www.jnu.edu.cn/main.htm"><p><span>节日快乐</span></p></a></li>
+                                                                    <li data-jcarouselcontrol="true" class="" style="width: 296px;"><a href="https://www.jnu.edu.cn/main.htm"><p><span>欢迎新同学</span></p></a></li>
+                                                                    <li data-jcarouselcontrol="true" class="" style="width: 296px;"><a href="https://www.jnu.edu.cn/main.htm"><p><span>录取通知书来啦！欢迎你跨越山海，到暨南来！</span></p></a></li>
+                                                                    <li data-jcarouselcontrol="true" class="active" style="width: 296px;"><a href="https://www.jnu.edu.cn/main.htm"><p><span>欢迎报考暨南大学</span></p></a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+</div>
+<!-- / banner slider end -->
+        
+    
+    <!-- small banner -->
+    <div class="smallBanner">
+        
+            
+                
+                    <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 0px;"><ul class="bxslider small-bxslider" style="width: 615%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);"><li style="float: left; list-style: none; position: relative; width: 100px;" class="bx-clone">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/07d144c8-558c-4c65-be2d-f88f89776e3a.jpg">
+                            <p>
+                                欢迎报考暨南大学
+                            </p></a>
+                        </li>
+                                                <li style="float: left; list-style: none; position: relative; width: 100px;">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/104da66e-acd7-483c-8c53-6613238d0cda.jpg">
+                            <p>
+                                节日快乐
+                            </p></a>
+                        </li>
+                                                    <li style="float: left; list-style: none; position: relative; width: 100px;">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/98260bfa-fd90-4052-a596-0f1fd506ae62.jpg">
+                            <p>
+                                欢迎新同学
+                            </p></a>
+                        </li>
+                                                    <li style="float: left; list-style: none; position: relative; width: 100px;">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/0265ec82-398e-4b15-b7bd-b31f2132308d.jpg">
+                            <p>
+                                录取通知书来啦！欢迎你跨越山海，到暨南来！
+                            </p></a>
+                        </li>
+                                                    <li style="float: left; list-style: none; position: relative; width: 100px;">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/07d144c8-558c-4c65-be2d-f88f89776e3a.jpg">
+                            <p>
+                                欢迎报考暨南大学
+                            </p></a>
+                        </li>
+                                                                            <li style="float: left; list-style: none; position: relative; width: 100px;" class="bx-clone">
+                            <a href="https://www.jnu.edu.cn/main.htm"><img src="./jnu_files/104da66e-acd7-483c-8c53-6613238d0cda.jpg">
+                            <p>
+                                节日快乐
+                            </p></a>
+                        </li></ul></div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="0" class="bx-pager-link active">1</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="1" class="bx-pager-link">2</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="2" class="bx-pager-link">3</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="3" class="bx-pager-link">4</a></div></div><div class="bx-controls-direction"><a class="bx-prev" href="https://www.jnu.edu.cn/main.htm">Prev</a><a class="bx-next" href="https://www.jnu.edu.cn/main.htm">Next</a></div></div></div>
+                
+            
+        
+    </div>
+
+    <!--  主体内容开始 -->
+    <div class="wrap-content">
+        <div class="firstBlock">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 pdl27 pdr27"> 
+                        <div class="title newsBlockTitle">
+                            <!-- 学校新闻标题 -->
+                            <ul>
+                                <li>
+                                    
+                                        
+                                            
+                                                <!-- scholl news -->
+                                                  
+                                                  
+                                                <a href="https://news.jnu.edu.cn/jnyw/List/List_149.html" target="_blank">学校新闻</a> 
+                                                  
+                                                <a href="https://ddesd.jnu.edu.cn/" target="_blank">学习宣传贯彻党的二十大精神</a> 
+                                                
+                                                
+                                            
+                                        
+                                    
+                                </li>
+                            </ul>
+                            <!-- 视频|时讯|进入新闻网 -->
+                            <ul class="newTwoBlock">
+                                <li>
+                                    <a href="https://news.jnu.edu.cn/xyqmt/wldstJNTV/" target="_blank">视频</a>
+                                </li>  
+                                <li>|</li>  
+                                <li>
+                                    <a href="https://news.jnu.edu.cn/xysx/" target="_blank">时讯</a>
+                                </li>    
+                                <li>|</li>  
+                                <li>
+                                    <a href="https://news.jnu.edu.cn/" target="_blank">进入新闻网 »</a>
+                                </li> 
+                            </ul>
+
+                        </div>
+                        
+                            
+                                    
+                                    <!-- 学校新闻左模块 -->                                
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 blcokLeft">
+                                        <div class="content">
+                                                                                                                                        <a href="https://news.jnu.edu.cn/jnyw/yw/2023/09/08/22134152336.html" target="_blank" title="《光明日报》刊发林如鹏书记署名文章《在团结奋斗中创造新的历史伟业》">
+<div class="news_img">
+                                                   <img src="./jnu_files/202309110923251950.jpg" class="img-responsive" style="">
+</div>
+                                                    <h3>《光明日报》刊发林如鹏书记署名文章《在团结奋斗中创造新的历史伟业》</h3>
+                                                </a>
+                                            <p>9月8日，《光明日报》理论版头条刊发我校党委书记林如鹏的署名文章《在团结奋斗中创造新的历史伟业》。该文围绕把握团结奋斗的政治方向、明确团结奋斗的共同目…[详细]
+										</p> 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                    </div>
+                                
+                            
+                                    
+                        
+                            
+                                               
+                                    <!-- 学校新闻右模块 -->   
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 blcokRight">
+                                        <div class="content">
+                                            <ul><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/09/07/17053752331.html" title="标题：教师节前夕校领导走访慰问高层次人才和青年教师代表
+点击数：757
+发表时间：23年09月07日" target="_blank"><h3>教师节前夕校领导走访慰问高层次人才和青年教师代表
+</h3></a></li><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/09/01/19390352308.html" title="标题：学校召开2023年秋季中层干部会议暨干部换届动员会 努力实现高质量发展目标
+点击数：1596
+发表时间：23年09月01日" target="_blank"><h3>学校召开2023年秋季中层干部会议暨干部换届动员会 努力实现高质量发展目标
+</h3></a></li><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/09/01/18441852307.html" title="标题：我校举行2023年新生开学典礼 校领导寄语新生争做不负时代、堪当重任的暨南人
+点击数：1501
+发表时间：23年09月01日" target="_blank"><h3>我校举行2023年新生开学典礼 校领导寄语新生争做不负时代、堪当重任的暨南人
+</h3></a></li><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/08/31/10090652290.html" title="标题：暨南大学2023年度国家自然科学基金重点、重大类项目实现新突破
+点击数：1550
+发表时间：23年08月31日" target="_blank"><h3>暨南大学2023年度国家自然科学基金重点、重大类项目实现新突破
+</h3></a></li><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/08/31/08574952289.html" title="标题：1.4万新生报到！线上线下服务便捷贴心 院系迎新显特色现温度
+点击数：1254
+发表时间：23年08月31日" target="_blank"><h3>1.4万新生报到！线上线下服务便捷贴心 院系迎新显特色现温度
+</h3></a></li><li><a href="https://news.jnu.edu.cn/jnyw/yw/2023/08/30/09252352278.html" title="标题：我校在第十二届师德主题征文及微视频征集活动中再创佳绩
+点击数：260
+发表时间：23年08月30日" target="_blank"><h3>我校在第十二届师德主题征文及微视频征集活动中再创佳绩
+</h3></a></li></ul>
+<!--                                                                                          -->
+<!--
+                                            <div class="more">
+                                                <a href="https://news.jnu.edu.cn" target="_blank">进入新闻网</a>
+                                              </div>
+-->
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                    </div>
+<!-- where is here ? -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 bigBlockReport pdr27 pdl27">
+                        <div class="title">
+                            <ul>
+                                <li>
+                                    
+                                        
+                                            
+                                                 
+
+      
+
+<a href="https://www.jnu.edu.cn/xxgg/list.htm">学校公告</a>
+
+  
+
+
+                                            
+                                        
+                                    
+                                </li>
+                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    
+                                        
+                                            
+                                                 
+
+      
+
+<a href="https://www.jnu.edu.cn/tz/list.htm">校内通知</a>
+
+  
+
+
+                                            
+                                        
+                                    
+                                </li>
+                                <li>
+                                    |
+                                </li>
+                                <li>
+                                    
+                                        
+                                            
+                                                 
+
+      
+
+<a href="https://www.jnu.edu.cn/gg/list.htm">每周会议</a>
+
+  
+
+
+                                            
+                                        
+                                    
+                                </li><!--<li><a href="" class="more">更多...</a></li>-->
+                            </ul>
+                        </div>
+                        <div class="lectureBlock">
+                            <ul>
+                                
+                                    
+                                                                                    
+                                                                                                                                <li>
+                                                                                                <a href="https://jwc.jnu.edu.cn/2023/0823/c8320a761121/page.htm" title="关于2023年度广东省一流本科课程拟推荐名单的公示">
+                                                                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <h3>23</h3>
+                                                        <p>2023.08</p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                             关于2023年度广东省一流本科课程拟推荐名单的公示
+                                                        </h3>
+                                                        <p>
+                                                            
+                                                        </p>
+                                                    </div></div>
+                                                </a>
+                                            </li>
+                                                                                                                                                                                                                                                                    <li class="nowrapList">
+                                                  
+                                                <a href="https://www.jnu.edu.cn/2023/0725/c2621a760177/page.htm" title="关于暨南大学2023年度拟新增及撤销本科专业的公示">
+                                                <span>07-25</span>关于暨南大学2023年度拟新增及撤销本科专业的公示 </a>
+                                            </li>
+                                                                                                                                                                                                                        <li class="nowrapList">
+                                                  
+                                                <a href="https://www.jnu.edu.cn/2023/0317/c2621a739685/page.htm" title="关于《中美人才培养计划》121双学位项目2023年度秋季学期招生报名的通知">
+                                                <span>03-17</span>关于《中美人才培养计划》121双学位项目2023年度秋季学期招生报名的通知 </a>
+                                            </li>
+                                                                                                                            
+                                    
+                                
+                            </ul>
+                        </div>
+                        <div class="title">
+                            <ul>
+                                <li>
+                                    
+                                        
+                                            
+                                                 
+
+      
+
+<a href="https://www.jnu.edu.cn/xsjz/list.htm">学术讲座</a>
+
+  
+
+
+                                            
+                                        
+                                    
+                                </li><!--<li><a href="" class="more">更多...</a></li>-->
+                            </ul>
+                        </div>
+                        <div class="report">
+                            <ul>
+                                
+                                    
+                                                                                                                                <li>
+                                                <a href="https://www.jnu.edu.cn/2023/0605/c2622a754893/page.htm" title="词典学研究的颠覆：谈数字技术、人工智能和聊天机器人技术"><div class="media">
+                                                    <div class="media-left">
+                                                        <h3>05</h3>
+                                                        <p>2023.06</p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                            词典学研究的颠覆：谈数字技术、人工智能和聊天机器人技...
+                                                        </h3>
+                                                        <p>
+                                                            
+                                                        </p>
+                                                    </div>
+                                                </div></a>
+                                            </li>                                            <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0605/c2622a754889/page.htm" title="国际学院名师系列讲座之二十三"><span>06-05</span>国际学院名师系列讲座之二十三 </a>
+                                            </li>                                            <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0424/c2622a745835/page.htm" title="百年暨南文化素质教育讲堂第350期：温铁军：中国式现代化与知识创新"><span>04-24</span>百年暨南文化素质教育讲堂第350期：温铁军：中国式现代化与知识创新 </a>
+                                            </li>                                        
+                                    
+                                
+                            </ul>
+                        </div>
+                    </div><!--手机版(学校公告/学校讲座/通知/会议)-->
+                    <div class="col-sm-12 col-xs-12 smallBlockReport">
+                        <div class="smallTitle">
+                            <ul>
+                                
+                                    
+                                        
+                                                                                                                                    <li class="active">
+                                                                                            <a href="javascript:void(0);">学校公告</a>
+                                            </li>
+                                                                                                                                    <li>
+                                                                                            <a href="javascript:void(0);">学术讲座</a>
+                                            </li>
+                                                                                    
+                                    
+                                
+
+                                
+                                    
+                                        
+                                                                                        <li><a href="https://www.jnu.edu.cn/tz/list.htm">校内通知</a></li><li>
+                                                                                    </li>
+                                    
+                                
+                                
+                                    
+                                        
+                                                                                        <li><a href="https://www.jnu.edu.cn/gg/list.htm">每周会议</a></li>
+                                                                                    
+                                    
+                                
+                            </ul>
+                        </div>
+                        
+                            
+                                
+                                    <div class="smallContent" style="display:block;">
+                                        <ul>
+                                                                                                                                   <li>
+                                                                                                <a href="https://jwc.jnu.edu.cn/2023/0823/c8320a761121/page.htm" title="关于2023年度广东省一流本科课程拟推荐名单的公示">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <h3>23</h3>
+                                                        <p>2023.08</p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                            关于2023年度广东省一流本科课程拟推荐名单的公示
+                                                        </h3>
+                                                    </div>
+                                                </div></a>
+                                            </li>                                                                                                                                 <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0725/c2621a760177/page.htm"><span>07-25</span>关于暨南大学2023年度拟新增及撤销本科专业的公示</a>
+                                            </li>                                                                                                                                 <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0317/c2621a739685/page.htm"><span>03-17</span>关于《中美人才培养计划》121双学位项目2023年度秋季学期招生报名的通知</a>
+                                            </li>                                                                                  </ul>
+                                        <div class="more">
+                                                                                        <a href="https://www.jnu.edu.cn/xxgg/list.htm">查看更多》</a>                                                                                    </div>
+                                    </div>
+                                
+                            
+                        
+                        
+                            
+                                                                    
+                                    <div class="smallContent">
+                                        <ul>
+                                                                                                                                   <li>
+                                                <a href="https://www.jnu.edu.cn/2023/0605/c2622a754893/page.htm"><div class="media">
+                                                    <div class="media-left">
+                                                        <h3>05</h3>
+                                                        <p>2023.06</p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                            词典学研究的颠覆：谈数字技术、人工智能和聊天机器人技术
+                                                        </h3>
+                                                    </div>
+                                                </div></a>
+                                            </li>                                                                                                                                 <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0605/c2622a754889/page.htm"><span>06-05</span>国际学院名师系列讲座之二十三</a>
+                                            </li>                                                                                                                                 <li class="nowrapList">
+                                                <a href="https://www.jnu.edu.cn/2023/0424/c2622a745835/page.htm"><span>04-24</span>百年暨南文化素质教育讲堂第350期：温铁军：中国式现代化与知识创新</a>
+                                            </li>                                                                                  </ul>
+                                        <div class="more">
+                                                                                        <a href="https://www.jnu.edu.cn/xsjz/list.htm">查看更多》</a>                                                                                    </div>
+                                    </div>
+                                
+                            
+                        
+<!--
+                        <div frag="面板38">
+                            <div frag="窗口38">
+                                <div frag="窗口内容38">
+                                    <div class="smallContent">
+                                        <ul>
+                                            #foreach ($ca in ${columnArticles})
+                                           #if(${velocityCount}==1)
+                                            <li>
+                                                <a href="${ca.visitURL}"><div class="media">
+                                                    <div class="media-left">
+                                                        <h3>
+                                                            ${ca.siteArticle.publishTime}
+                                                        </h3>
+                                                        <p>
+                                                            ${ca.siteArticle.publishTime}
+                                                        </p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                            ${ca.siteArticle.article.title}
+                                                        </h3>
+                                                    </div>
+                                                </div></a>
+                                            </li>#else
+                                            <li class="nowrapList">
+                                                <a href="${ca.visitURL}"><span>${ca.siteArticle.publishTime}</span>${ca.siteArticle.article.title}</a>
+                                            </li>#end
+                                          #end
+                                        </ul>
+                                        <div class="more">
+                                            #foreach ($c in ${columns})
+                                            #if(${velocityCount}==1)<a href="${c.visitURL}">查看更多》</a>#end
+                                            #end
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div frag="面板39">
+                            <div frag="窗口39">
+                                <div frag="窗口内容39">
+                                    <div class="smallContent">
+                                        <ul>
+                                            #foreach ($ca in ${columnArticles})
+                                           #if(${velocityCount}==1)
+                                            <li>
+                                                <a href="${ca.visitURL}"><div class="media">
+                                                    <div class="media-left">
+                                                        <h3>
+                                                            ${ca.siteArticle.publishTime}
+                                                        </h3>
+                                                        <p>
+                                                            ${ca.siteArticle.publishTime}
+                                                        </p>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h3>
+                                                            ${ca.siteArticle.article.title}
+                                                        </h3>
+                                                    </div>
+                                                </div></a>
+                                            </li>#else
+                                            <li class="nowrapList">
+                                                <a href="${ca.visitURL}"><span>${ca.siteArticle.publishTime}</span>${ca.siteArticle.article.title}</a>
+                                            </li>#end
+                                          #end
+                                        </ul>
+                                        <div class="more">
+                                            #foreach ($c in ${columns})
+                                            #if(${velocityCount}==1)<a href="${c.visitURL}">查看更多》</a>#end
+                                            #end
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+-->
+
+
+
+
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="secondBlock-top">
+                            <!--<img src="/_upload/tpl/00/f5/245/template245/images/home/second.png"/>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- firstBlock  end -->
+        <!-- 第二大块 -->
+        <div class="secondBlock">
+            <div class="secondBlock-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 pdr27 pdl27">
+                            <!-- 媒体暨大 -->
+                            <div class="title">
+                                <ul>
+                                    <li>
+                                        
+                                            
+                                                
+                                                     
+                                                      
+                                                    <a href="https://news.jnu.edu.cn/mtjd/">媒体暨大</a> 
+                                                      
+                                                    
+                                                
+                                            
+                                        
+                                    </li> 
+                                </ul>
+                            </div>
+                            <!-- 媒体暨大大图新闻 -->
+                            <div class="content mediaJNU">
+                                <ul style="height:377px;overflow:hidden;">
+                                    
+                                        
+                                                                                                                                                                                            <li class="focus">
+                                                    <a href="https://news.jnu.edu.cn/mtjd/dt/2023/09/07/16015252329.html" title="【中国科学报】科学家开发出一种新型的免疫缺陷猴模型" target="_blank"><img src="./jnu_files/202309071601523798.jpg" class="news_thumb img-responsive" style="width:283.5px;height:189px;margin-left:26.25px;">
+                                                        <p class="p1">【光明日报】“粤港澳大湾区打造新发展格局战略支点的策略与路径”圆桌论坛在暨大举行</p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                                
+                                                                                                                                                                                                
+                                                                                                                                                                                                
+                                                                                                                                            
+                                        
+                                    
+                                <li class="fg"><a href="https://news.jnu.edu.cn/mtjd/dt/2023/09/11/11505852343.html" title="标题：【CGTN】Venezuela Delegation in China: Caracas seeks Chinese investments in energy, infrastructure, and telecoms
+点击数：24
+发表时间：23年09月11日" target="_blank"><h3>【CGTN】Venezuela Delegation in China: Cara...</h3></a></li><li class="fg"><a href="https://news.jnu.edu.cn/mtjd/dt/2023/09/07/15331052328.html" title="标题：【南方日报】暨南大学港澳台侨新生到江门开启侨乡文化研学之旅  翻开“侨校+侨都”校地合作新篇章
+点击数：70
+发表时间：23年09月07日" target="_blank"><h3>【南方日报】暨南大学港澳台侨新生到江门开启侨乡文化研学之旅  翻开“侨校+侨都”校...</h3></a></li><li class="fg"><a href="https://news.jnu.edu.cn/mtjd/dt/2023/08/30/10270852280.html" title="标题：【中国青年报】粤港澳大湾区青年足球交流赛在暨南大学开幕 160名球员竞技绿茵场
+点击数：57
+发表时间：23年08月26日" target="_blank"><h3>【中国青年报】粤港澳大湾区青年足球交流赛在暨南大学开幕 160名球员竞技绿茵场
+</h3></a></li></ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 pdl27 pdr27">
+                            <div class="title">
+                                <ul>
+                                    <li>
+                                        
+                                            
+                                                
+                                                    
+                                                     
+                                                    <a href="https://www.jnu.edu.cn/2623/list.htm">教学科研</a>
+                                                     
+                                                    
+                                                
+                                            
+                                        
+                                    </li><!--<li><a href="" class="more">更多...</a></li>-->
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <ul>
+                                    
+                                        
+                                                                                        <!-- 教学科研 -->
+                                                                                                                                          <li class="fg">
+                                                  <a href="https://www.jnu.edu.cn/_s85/2023/0912/c3135a766113/page.psp" title="化材院周小平/李丹团队在Angew. Chem.发表热点论文：高效圆偏振近红外TADF的非手性环三核金配合物">  
+                                                    <h3>化材院周小平/李丹团队在Angew. Chem.发表热点论文：高效圆偏振近红外TADF的非手性环三核金配合物</h3>
+                                                    <p>
+                                                                                                              暨南大学融媒体中心讯 近日，我校周小平教授、李丹教授团队在Angew. Chem. Int. Ed.
+                                                                                                          </p>
+                                                  </a>
+                                                </li>
+                                                                                                                                                                                        <li class="fg">
+                                                  <a href="https://www.jnu.edu.cn/2023/0911/c3135a764083/page.htm" title="粤港澳中枢神经再生研究院李晓江团队在《Advanced Science》发文：新方法(mini-intrabody)治疗亨廷顿疾病">  
+                                                    <h3>粤港澳中枢神经再生研究院李晓江团队在《Advanced Science》发文：新方法(mini-intrabody)治疗亨廷顿疾病</h3>
+                                                  </a>
+                                                </li>
+                                                                                                                                                                                        <li class="focus">
+                                                  <a href="https://www.jnu.edu.cn/2023/0905/c3135a763603/page.htm" title="粤港澳中枢神经再生研究院闫森研究员/涂著池研究员使用单碱基编辑技术构建新型免疫缺陷猴模型"><img src="./jnu_files/4389a3c9-df0e-4c1c-90c9-ff1cf54277fe.png" class="news_thumb img-responsive" id="teaching_research">
+                                                    <p class="p2">
+                                                      粤港澳中枢神经再生研究院闫森研究员/涂著池研究员使用单碱基编辑技术构建新型免疫缺陷猴模型
+                                                    </p>
+                                                  </a>
+                                                  </li>
+                                                                                                                                      
+                                        
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 人物/学苑/学子 -->
+                        <div class="col-lg-4 col-md-4 pdr27 pdl27" id="rxx">
+                            <!-- 标题 -->
+                            <div class="title">
+                                <ul>
+                                    <!-- 人物 -->
+                                    <li class="rxxtitle">
+                                        <!-- <div frag="面板16">
+                                            <div frag="窗口16">
+                                                <div frag="窗口内容16"> 
+                                                    [NaviStructBegin]   
+                                                    [NaviItemCycleBegin]  
+                                                    <a href="{栏目URL}">{栏目名称}</a> 
+                                                    [NaviItemCycleEnd]  
+                                                    [NaviStructEnd] 
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <a href="https://www.jnu.edu.cn/2624/list.htm" target="_blank">人物</a>
+                                    </li>
+                                    <li>
+                                        |
+                                    </li>
+                                    <!-- 学苑 -->
+                                    <li class="rxxtitle">
+                                        <a href="https://www.jnu.edu.cn/xy_5640/list.htm" target="_blank">学苑</a>
+                                    </li>
+                                    <li>
+                                        |
+                                    </li>
+                                    <!-- 学子 -->
+                                    <li class="rxxtitle">
+                                        <a href="https://www.jnu.edu.cn/2625/list.htm" target="_blank">学子</a>
+                                    </li> 
+                                </ul>
+                            </div>
+                            <!-- 内容 -->
+                            <div class="content">
+                                <!-- 人物 -->
+                                <ul class="rxxlist">
+                                    
+                                        
+                                             
+                                                                                                                                        <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0525/c2624a753867/page.htm" title="暨南校友陆秀兴：建功新时代，在基层绽放最美青春">
+                                                        <img src="./jnu_files/e4309227-ed75-48fc-aa21-fab299402e21.jpg" class="news_thumb img-responsive" style="width:141.75px;height:189px;margin-left:97.125px;">
+                                                        <p class="p1">
+                                                        暨南校友陆秀兴：建功新时代，在基层绽放最美青春
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2022/1125/c2624a751277/page.htm" title="来自暨南的她，非常“有戏”！">   
+                                                        <h3>
+                                                        来自暨南的她，非常“有戏”！
+                                                        </h3>
+                                                        <p>
+                                                                                                                11月6日，第六届中国戏曲文化周正式开幕。开幕式当天，中国戏曲文化周还为观众带来了丰富多彩的演出和活
+                                                                                                                </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2022/1031/c2624a751275/page.htm" title="【暨南金课】《数字营销传播》教学团队：13年沉淀，一朝“亮剑”！">   
+                                                        <h3>
+                                                        【暨南金课】《数字营销传播》教学团队：13年沉淀，一朝“亮剑”！
+                                                        </h3>
+                                                    </a>
+                                                </li>
+                                                                                                                                    
+                                        
+                                    
+                                </ul> 
+                                <!-- 学苑 -->
+                                <ul class="rxxlist" style="display:none;">
+                                    
+                                        
+                                             
+                                                                                                                                        <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0630/c5640a758135/page.htm" title="秉创新视野 怀爱生之心——2023年全国研究生导师培训访谈">
+                                                        <img src="./jnu_files/baf135ca-f6ab-4e2c-a9d5-0699f89c5214.jpg" class="news_thumb img-responsive">
+                                                        <p class="p1">
+                                                        秉创新视野 怀爱生之心——2023年全国研究生导师培训访谈
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0504/c5640a751317/page.htm" title="这位暨南人，带着中国文化创意产品“走出去”">   
+                                                        <h3>
+                                                        这位暨南人，带着中国文化创意产品“走出去”
+                                                        </h3>
+                                                        <p>
+                                                                                                                把中华优秀传统文化传播到五洲四海是每一位暨南人的使命在文化建设蒸蒸日上的今天中华文化的传承与创新步步
+                                                                                                                </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0504/c5640a751315/page.htm" title="党龄&gt;26000天，TA说...">   
+                                                        <h3>
+                                                        党龄&gt;26000天，TA说...
+                                                        </h3>
+                                                    </a>
+                                                </li>
+                                                                                                                                    
+                                        
+                                    
+                                </ul> 
+                                <!-- 学子 -->
+                                <ul class="rxxlist" style="display:none;">
+                                    
+                                        
+                                             
+                                                                                                                                        <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0331/c2625a742257/page.htm" title="暨南新青年丨直博北大，暨南的他如何诠释优秀？">
+                                                        <img src="./jnu_files/2a16389c-e198-4ce7-a0c1-93beec5da7c0.png" class="news_thumb img-responsive">
+                                                        <p class="p1">
+                                                            暨南新青年丨直博北大，暨南的他如何诠释优秀？
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0331/c2625a742073/page.htm" title="一年4篇中科院TOP一区！暨南的他怎么那么牛？">   
+                                                        <h3>
+                                                        一年4篇中科院TOP一区！暨南的他怎么那么牛？
+                                                        </h3>
+                                                        <p>
+                                                                                                                一年发表5篇SCI其中 4篇属于中科院TOP一区3篇共同第一作者最高影响因子达18.9分在暨南医学林
+                                                                                                                </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                    <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0315/c2625a739267/page.htm" title="跨专业、双学位、保研复旦，来自暨南的她人生不设限！">   
+                                                        <h3>
+                                                        跨专业、双学位、保研复旦，来自暨南的她人生不设限！
+                                                        </h3>
+                                                    </a>
+                                                </li>
+                                                                                                                                    
+                                        
+                                    
+                                </ul> 
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 小屏幕媒体暨大板块 -->
+            <div class="smallSecondBlock">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 ">
+                            <div class="smallInformationTitle">
+                                <ul>
+                                    
+                                        
+                                            
+                                                                                                                                                <li class="active">
+                                                                                                <a href="javascript:void(0);">媒体暨大</a>
+                                                </li>
+                                                                                                                                                <li>
+                                                                                                <a href="javascript:void(0);">教学科研</a>
+                                                </li>
+                                                                                                                                                <li>
+                                                                                                <a href="javascript:void(0);">人物</a>
+                                                </li>
+                                                                                                                                                <li>
+                                                                                                <a href="javascript:void(0);">学子</a>
+                                                </li>
+                                                                                            
+                                        
+                                    
+                                </ul>
+                            </div>
+                            
+                                
+                                                                            
+                                        <div class="smallInformationContent" style="display:block;">
+                                            <ul>
+                                                                                                                                                <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0913/c2632a765491/page.htm"><img src="./jnu_files/243b8c5e-0d2d-42bf-bc5d-727a99c030b2.png" class="news_thumb img-responsive">
+                                                    <p class="p1">
+                                                        【中国科学报】科学家开发出一种新型的免疫缺陷猴模型
+                                                    </p></a>
+                                                </li>
+                                                                                                                                                                                                <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0913/c2632a765489/page.htm"><h3>
+                                                        【中国科学报】新方法有望治疗亨廷顿舞蹈症
+                                                    </h3>
+                                                    <p>
+                                                        近日，暨南大学粤港澳中枢神经再生研究院李世华、闫森和李晓江等人成功构建一种Mini-intrabod
+                                                    </p></a>
+                                                </li>
+                                                                                                                                                                                                <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0913/c2632a764899/page.htm"><h3>
+                                                        【广东广播电视台】酷炫生动又有趣，别开生面的国防教育“开学第一课”在暨南大学开课！
+                                                    </h3>
+                                                    <p>
+                                                        9月12日，国防教育“进高校”主题活动启动仪式暨“开学第一课”活动在暨南大学举办，吸引众多师生围观参
+                                                    </p></a>
+                                                </li>
+                                                                                                                                            </ul>
+                                            <div class="more">
+                                                                                                                                                <a href="https://news.jnu.edu.cn/mtjd/">查看更多》</a>
+                                                                                                                                            </div>
+                                        </div>
+                                    
+                                
+                            
+                            
+                                
+                                                                            
+                                        <div class="smallInformationContent" style="display:none;">
+                                            <ul>
+                                                                                                                                                <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0912/c2623a766113/page.htm">
+                                                        <img src="./jnu_files/e76c931e-8e18-4143-9ba5-9bbecdfbf65c.png">
+                                                        <p class="p1">
+                                                            化材院周小平/李丹团队在Angew. Chem.发表热点论文：高效圆偏振近红外TADF的非手性环三核金配合物
+                                                        </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                                                                                <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0911/c2623a764083/page.htm">
+                                                        <h3>
+                                                            粤港澳中枢神经再生研究院李晓江团队在《Advanced Science》发文：新方法(mini-intrabody)治疗亨廷顿疾病
+                                                        </h3>
+                                                        <p>
+                                                                                                                        暨南大学融媒体中心讯 亨廷顿舞蹈症（HD）是由突变亨廷顿蛋白（mHTT）在细胞内累积引起的单基因突变
+                                                                                                                    </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                            </ul>
+                                            <div class="more">
+                                                                                            <a href="https://www.jnu.edu.cn/2623/list.htm">查看更多》</a>                                                                                        </div>
+                                        </div>
+                                    
+                                
+                             
+                            
+                                
+                                                                            
+                                        <div class="smallInformationContent" style="display:none;">
+                                            <ul>
+                                                                                                                                                <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0525/c2624a753867/page.htm">
+                                                        <img src="./jnu_files/e4309227-ed75-48fc-aa21-fab299402e21.jpg">
+                                                        <p class="p1">
+                                                            暨南校友陆秀兴：建功新时代，在基层绽放最美青春
+                                                        </p>
+                                                    </a>
+                                                </li>                                                                                                                                                <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2022/1125/c2624a751277/page.htm">
+                                                        <h3>
+                                                            来自暨南的她，非常“有戏”！
+                                                        </h3>
+                                                        <p>
+                                                                                                                        11月6日，第六届中国戏曲文化周正式开幕。开幕式当天，中国戏曲文化周还为观众带来了丰富多彩的演出和活
+                                                                                                                    </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                            </ul>
+                                            <div class="more">
+                                                                                            <a href="https://www.jnu.edu.cn/2624/list.htm">查看更多》</a>                                                                                        </div>
+                                        </div>
+                                    
+                                
+                            
+                            
+                                
+                                                                            
+                                        <div class="smallInformationContent" style="display:none;">
+                                            <ul>
+                                                                                                                                                <li class="focus">
+                                                    <a href="https://www.jnu.edu.cn/2023/0331/c2625a742257/page.htm"><img src="./jnu_files/2a16389c-e198-4ce7-a0c1-93beec5da7c0.png">
+                                                    <p class="p1">
+                                                        暨南新青年丨直博北大，暨南的他如何诠释优秀？
+                                                    </p></a>
+                                                </li>
+                                                                                                                                                                                                <li class="fg">
+                                                    <a href="https://www.jnu.edu.cn/2023/0331/c2625a742073/page.htm">
+                                                        <h3>
+                                                            一年4篇中科院TOP一区！暨南的他怎么那么牛？
+                                                        </h3>
+                                                        <p>
+                                                                                                                        一年发表5篇SCI其中 4篇属于中科院TOP一区3篇共同第一作者最高影响因子达18.9分在暨南医学林
+                                                                                                                    </p>
+                                                    </a>
+                                                </li>
+                                                                                                                                            </ul>
+                                            <div class="more">
+                                                                                                                                        <a href="https://www.jnu.edu.cn/2625/list.htm">查看更多》</a>
+                                                                                                                                    </div>
+                                        </div>
+                                    
+                                 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--校园专题-->
+        <div class="thirdBlock">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="title" style="display:none">
+                            <ul>
+                                <li>
+                                    
+                                        
+                                            
+                                                 
+                                                 
+                                                <a href="https://www.jnu.edu.cn/xyztwzlb/list.htm">校园专题</a>
+                                                 
+                                                
+                                            
+                                        
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--pc第一个大图-->
+                    <div class="col-lg-4 col-md-4 leftBlock pdl27 pdr27" style="display:none">
+                        
+                            
+                                
+                                                                                                            <a href="http://ldsc.jnu.edu.cn/">
+                                        <img src="./jnu_files/a4947e99-b7b0-40ba-91a0-5bc87854fc37.jpg">
+                                    </a>  
+                                                                                                                                                                                                                                                                                                                                
+                            
+                        
+                    </div><!--pc四个小图-->
+                    <div class="col-lg-4 col-md-4 centerBlock pdr27 pdl27" style="display:none">
+                        
+                            
+                                
+                                    <ul>
+                                                                                                                        <li class="oneList">
+                                                                                <img src="./jnu_files/573d48e2-5d6b-4cd7-8fc0-fef0b763ed04.jpg">   
+                                        <a href="http://dsxx.jnu.edu.cn/">   
+                                            <div class="ztList">
+                                                <p>
+                                                    学党史，悟思想
+                                                </p>
+                                                <p>
+                                                    办实事，开新局
+                                                </p>
+                                            </div>
+                                        </a>
+                                        </li>
+                                                                                                                        <li class="twoList">
+                                                                                <img src="./jnu_files/538aeb12-c421-4f16-a4e3-2a852c961947.png">   
+                                        <a href="https://www.jnu.edu.cn/main.htm">   
+                                            <div class="ztList">
+                                                <p>
+                                                     文化素质教育
+                                                </p>
+                                                <p>
+                                                    “忠信笃敬”网
+                                                </p>
+                                            </div>
+                                        </a>
+                                        </li>
+                                                                            </ul>
+                                
+                            
+                        
+                        
+                            
+                                
+                                    <ul class="ulLlist">
+                                                                                                                        <li class="threeList">
+                                                                                    <img src="./jnu_files/dfe66a34-7331-4951-961a-2b85086e70e0.jpg">   
+                                            <a href="https://freshman.jnu.edu.cn/frontend/web/home/index">     
+                                                <div class="ztList">
+                                                    <p>
+                                                        暨南大学
+                                                    </p>
+                                                    <p>
+                                                        新生网
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                                                                                                        <li class="fourList">
+                                                                                    <img src="./jnu_files/2af449d4-9104-4ba9-bea2-e3731ebf52ef.jpg">   
+                                            <a href="http://ztjy.jnu.edu.cn/">     
+                                                <div class="ztList">
+                                                    <p>
+                                                        “不忘初心、
+                                                    </p>
+                                                    <p>
+                                                        牢记使命”
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                                                            </ul>
+                                
+                            
+                        
+                    </div>
+                    <div class="col-lg-4 col-md-4 rightBlock pdr27 pdl27" style="display:none">
+                        <ul>
+                            
+                                
+                                    <div id="wp_news_w22"> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="wp_article_list_table"> 
+<tbody><tr> 
+<td> 
+
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/_redirect?siteId=85&amp;columnId=2634&amp;articleId=300735" target="_blank" title="建设高水平大学专题">建设高水平大学专题</a>
+                                        </li>
+                                    </td> 
+</tr> 
+<tr> 
+<td> 
+
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2018/1224/c2634a269580/page.htm" target="_blank" title="暨南大学2020-2021学年本科教学质量报告">暨南大学2020-2021学年本科教学...</a>
+                                        </li>
+                                    </td> 
+</tr> 
+<tr> 
+<td> 
+
+                                        <li>
+                                            <a href="http://www.jnuedf.org/" target="_blank" title="暨南大学教育发展基金会">暨南大学教育发展基金会</a>
+                                        </li>
+                                    </td> 
+</tr> 
+<tr> 
+<td> 
+
+                                        <li>
+                                            <a href="http://www.hwjyw.com/" target="_blank" title="中国华文教育网">中国华文教育网</a>
+                                        </li>
+                                    </td> 
+</tr> 
+<tr> 
+<td> 
+
+                                        <li>
+                                            <a href="http://www.chinaqw.com/" target="_blank" title="中国侨网">中国侨网</a>
+                                        </li>
+                                    </td> 
+</tr> 
+<tr> 
+<td> 
+
+                                        <li>
+                                            <a href="https://www.jnu.edu.cn/syjxsfzx/list.htm" target="_blank" title="实验教学示范中心">实验教学示范中心</a>
+                                        </li>
+                                    </td> 
+</tr> 
+</tbody></table></div> 
+
+                                
+                            
+                        </ul>
+                    </div><!-- 小屏幕展示专题 -->
+                    <div class="col-sm-12 col-xs-12 smallZt">
+                        
+                            
+                                
+                                    <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 0px;"><ul class="ztSlider" style="width: 715%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);"><li class="fourList bx-clone" style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <img src="./jnu_files/573d48e2-5d6b-4cd7-8fc0-fef0b763ed04.jpg"> 
+                                            <a href="http://dsxx.jnu.edu.cn/">  
+                                                <div class="ztList">
+                                                    <p>
+                                                        学党史，悟思想
+                                                    </p>
+                                                    <p>
+                                                        办实事，开新局
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                                                                                                        <li style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <a href="http://ldsc.jnu.edu.cn/"><img src="./jnu_files/a4947e99-b7b0-40ba-91a0-5bc87854fc37.jpg"></a>
+                                        </li>
+                                                                                                                                                                <li class="oneList" style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <img src="./jnu_files/74f3ff4d-ce43-4845-abfd-78c40ecf1ccf.jpg"> <a href="http://dsxx.jnu.edu.cn/"> 
+         
+                                            <div class="ztList">
+                                                <p>
+                                                    党史学习教育
+                                                </p>
+                                                <p>
+                                                    
+                                                </p>
+                                            </div></a>
+                                        </li>
+                                                                                                                                                                <li class="twoList" style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <img src="./jnu_files/7f5f7737-bf23-4507-bf86-225c2b440cdb.jpg"> 
+                                            <a href="http://ztjy.jnu.edu.cn/"> 
+         
+                                            <div class="ztList">
+                                                <p>
+                                                    不忘初心，牢记使命
+                                                </p>
+                                                <p>
+                                                    
+                                                </p>
+                                            </div></a>
+                                        </li>
+                                                                                                                                                                <li class="threeList" style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <img src="./jnu_files/394be1a7-07fa-4b66-a1ed-4b3f1e1e2e4a.jpg"> 
+                                            <a href="https://news.jnu.edu.cn/Category_183/Index.aspx">  
+                                                <div class="ztList">
+                                                    <p>
+                                                        校园专题banner
+                                                    </p>
+                                                    <p>
+                                                        
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                                                                                                                                                <li class="fourList" style="float: left; list-style: none; position: relative; width: 100px;">
+                                            <img src="./jnu_files/573d48e2-5d6b-4cd7-8fc0-fef0b763ed04.jpg"> 
+                                            <a href="http://dsxx.jnu.edu.cn/">  
+                                                <div class="ztList">
+                                                    <p>
+                                                        学党史，悟思想
+                                                    </p>
+                                                    <p>
+                                                        办实事，开新局
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                                                                                                    <li style="float: left; list-style: none; position: relative; width: 100px;" class="bx-clone">
+                                            <a href="http://ldsc.jnu.edu.cn/"><img src="./jnu_files/a4947e99-b7b0-40ba-91a0-5bc87854fc37.jpg"></a>
+                                        </li></ul></div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="0" class="bx-pager-link active">1</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="1" class="bx-pager-link">2</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="2" class="bx-pager-link">3</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="3" class="bx-pager-link">4</a></div><div class="bx-pager-item"><a href="https://www.jnu.edu.cn/main.htm" data-slide-index="4" class="bx-pager-link">5</a></div></div><div class="bx-controls-direction"><a class="bx-prev" href="https://www.jnu.edu.cn/main.htm">Prev</a><a class="bx-next" href="https://www.jnu.edu.cn/main.htm">Next</a></div></div></div>
+                                
+                            
+                        
+                    </div><!-- 小屏幕专题列表 -->
+                    <div class="col-sm-12 col-xs-12 smallZtList">
+                        <ul>
+                            
+                                
+                                    <div id="wp_news_w45"> 
+ 
+                                    
+                                    <li>
+                                    <a href="https://www.jnu.edu.cn/_redirect?siteId=85&amp;columnId=2634&amp;articleId=300735" target="_blank" title="建设高水平大学专题">建设高水平大学专题</a>
+                                    </li>
+                                    
+                                    <li>
+                                    <a href="https://www.jnu.edu.cn/2018/1224/c2634a269580/page.htm" target="_blank" title="暨南大学2020-2021学年本科教学质量报告">暨南大学2020-2021学年本科教学...</a>
+                                    </li>
+                                    
+                                    <li>
+                                    <a href="http://www.jnuedf.org/" target="_blank" title="暨南大学教育发展基金会">暨南大学教育发展基金会</a>
+                                    </li>
+                                    
+                                    </div> 
+
+                                
+                            
+                            
+                                
+                                    
+                                        <li class="more">
+                                                                                                                                    <a href="https://www.jnu.edu.cn/xyztwzlb/list.htm">显示更多</a>
+                                                                                                                                </li>
+                                    
+                                
+                            
+                        </ul>
+                    </div>
+                    <div class="col-lg-12 col-md-12 linking">
+                        <ul>
+                            <li class="title">
+                                常用链接
+                            </li>
+                            <li>
+                                |
+                            </li>
+                            
+                                
+                                                                            
+                                                                                                                                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2017sjgdwzbhz/list.psp">
+                                                假期值班
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                        <li>
+                                            <a href="https://xxgk.jnu.edu.cn/">
+                                                信息公开
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                        <li>
+                                            <a href="http://learning.jnu.edu.cn/">
+                                                在线课程
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                        <li>
+                                            <a href="https://www.jnu.edu.cn/2016/1102/c2633a47855/page.htm">招标采购</a>
+                                        </li>
+                                                                                                                                                                                                                                        <li class="video">
+                                            <a href="https://www.jnu.edu.cn/spzb/list.htm">
+                                                视频直播
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                    <li>
+                                            <a href="https://ehall.jnu.edu.cn/infoplus/form/XZXX/start">
+                                                校长信箱
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                        <li>
+                                            <a href="https://www.jnuxyh.cn/">
+                                                全球暨南人
+                                            </a>
+                                        </li>
+                                                                                                                                                                                                                                        <li>
+                                            <a href="http://www.jnuedf.org/">
+                                                基金会
+                                            </a>
+                                        </li>
+                                                                                                                                                        
+                                
+                            
+                        </ul>
+                        <ul>
+                        	
+                            <li class="title" style="opacity: 0;filter: alpha(opacity=0);">
+                                门户网站
+                            </li>
+                            <li>
+                                |
+                            </li>
+                              
+                            				            				                                        <li>
+                                <a href="http://www.zytzb.gov.cn/html/index.html">中央统战部</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://www.moe.gov.cn/">教育部</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://www.gd.gov.cn/">广东省人民政府</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://edu.gd.gov.cn/">广东省教育厅</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://www.gz.gov.cn/">广州市</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://www.sz.gov.cn/">深圳市</a>
+                            </li>
+                            				            				                                        <li>
+                                <a href="http://www.zhuhai.gov.cn/">珠海市</a>
+                            </li>
+                                                        
+                            
+                        </ul>
+                    </div><!-- 小屏幕展示 -->
+                    <div class="col-sm-12 col-xs-12 smallLinking">
+                        <h3 class="title">
+                            常用链接
+                        </h3>
+                        <ul>
+                            
+                                
+                                    
+                                                                                                                        <li>
+                                                                                <a href="https://www.jnu.edu.cn/2017sjgdwzbhz/list.psp">
+                                            假期值班
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="https://xxgk.jnu.edu.cn/">
+                                            信息公开
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="http://learning.jnu.edu.cn/">
+                                            在线课程
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="https://www.jnu.edu.cn/main.htm">
+                                            招标采购
+                                        </a>  
+                                        </li>
+                                                                                                                        <li class="video">
+                                                                                <a href="https://www.jnu.edu.cn/spzb/list.htm">
+                                            视频直播
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="https://ehall.jnu.edu.cn/infoplus/form/XZXX/start">
+                                            校长信箱
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="https://www.jnuxyh.cn/">
+                                            全球暨南人
+                                        </a>  
+                                        </li>
+                                                                                                                        <li>
+                                                                                <a href="http://www.jnuedf.org/">
+                                            基金会
+                                        </a>  
+                                        </li>
+                                                                            
+                                
+                            
+                        </ul>
+                        <ul>
+                            
+                                
+                                    
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.zytzb.gov.cn/html/index.html">
+                                            中央统战部
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.moe.gov.cn/">
+                                            教育部
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.gd.gov.cn/">
+                                            广东省人民政府
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://edu.gd.gov.cn/">
+                                            广东省教育厅
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.gz.gov.cn/">
+                                            广州市
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.sz.gov.cn/">
+                                            深圳市
+                                        </a>  
+                                        </li>
+                                        							            							                                                    <li style="width: 50%;">   
+                                        <a href="http://www.zhuhai.gov.cn/">
+                                            珠海市
+                                        </a>  
+                                        </li>
+                                                                            
+                                
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- wrap-content end -->
+    <footer class="footer">
+      <div class="footWrap clearfix">
+        <div class="container">
+          <div class="row">
+            <div class="left_information">
+
+              
+                
+                  
+                    <!-- 石牌校区（校本部） -->
+                                                                                <div class="sp school">
+                      <h4>石牌校区（校本部）</h4>
+                      <p>电话：020-85220010</p>
+                      <p>邮编：510632</p>
+                      <p>地址：广东省广州市天河区黄埔大道西601号</p>
+                    </div>
+                                      
+                
+              
+
+              
+                
+                  
+                    <!-- 番禺校区 -->
+                                                                                <div class="py school">
+                      <h4>番禺校区</h4>
+                      <p>电话：020-37331418</p>
+                      <p>邮编：511443</p>
+                      <p>地址：广东省广州市番禺区兴业大道东855号</p>
+                    </div>
+                                      
+                
+              
+              
+                
+                                      <!-- 珠海校区 -->
+                                                                                <div class="zh school">
+                      <h4>珠海校区</h4>
+                      <p>电话：0756-8505937</p>
+                      <p>邮编：519070</p>
+                      <p>地址：广东省珠海市香洲区前山路206号</p>
+                    </div>
+                                      
+                
+              
+              <!-- 版权 -->
+              <div class="bq school hidden-xs">
+                <p> 版权所有©暨南大学</p>
+                <p>ICP备案号:<a href="http://beian.miit.gov.cn/" style="color:#fff">粤ICP备 12087612号</a></p>
+                <p><img src="./jnu_files/under.png" alt=""> 粤公网安备 44010602001461号</p>
+              </div>
+              
+                
+                                      <!-- 广园东校区 -->
+                                                                                <div class="gyd school">
+                      <h4>广园东校区</h4>
+                      <p>电话：020-87205019</p>
+                      <p>邮编：510610</p>
+                      <p>地址：广东省广州市天河区瘦狗岭路377号</p>
+                    </div>
+                                      
+                
+              
+              
+                
+                  
+                    <!-- 深圳校区 -->
+                                                                                <div class="sp school">
+                      <h4>深圳校区</h4>
+                      <p>电话：0755-26931893</p>
+                      <p>邮编：518053</p>
+                      <p>地址：广东省深圳市南山区侨城东街6号</p>
+                    </div>
+                                      
+                
+              
+
+              <!-- 版权 -->
+              <div class="bq school hidden-lg hidden-md hidden-sm">
+                <p> 版权所有©暨南大学</p>
+                <p>ICP备案号:<a href="http://beian.miit.gov.cn/" style="color:#fff">粤ICP备 12087612号</a></p>
+                <p><img src="./jnu_files/under.png" alt=""> 粤公网安备 44010602001461号</p>
+              </div>
+
+            </div>
+            <div class="right_other">
+              <!-- 二维码 -->
+              <div class="code clearfix">
+                <div class="dingyue">
+                  <div class="code_img">
+                    <img src="./jnu_files/qrcode_1.jpg" alt="">
+                  </div>
+                  <p>官方微信订阅号</p>
+                </div>
+                <div class="fuwu">
+                  <div class="code_img">
+                    <img src="./jnu_files/qrcode_2.jpg" alt="">
+                  </div>
+                  <p>官方微信服务号</p>
+                </div>
+              </div>
+              <!-- logo -->
+              
+                
+                  
+                    <div class="footer_logo">
+                      <a href="https://www.jnu.edu.cn/main.htm">
+                        <img src="./jnu_files/foot_logo.png" alt="暨南大学中文官网">
+                      </a>
+                    </div>
+                  
+                
+              
+              <!-- 其他 -->
+              <div class="other">
+                
+                  
+                    
+                      <div class="wx other_img">
+                                                <a href="javascript::">
+                          <img src="./jnu_files/picture.png" alt="">
+                        </a>
+                                              </div>
+                    
+                  
+                
+                
+                  
+                    
+                      <div class="wb other_img">
+                                                <a href="https://weibo.com/jnunews">
+                          <img src="./jnu_files/picture(1).png" alt="">
+                        </a>
+                                              </div>
+                    
+                  
+                
+                
+                  
+                    
+                      <div class="sy other_img">
+                                                <a href="http://bszs.conac.cn/sitename?method=show&amp;id=436D1C52EF15118FE053022819ACE85D">
+                          <img src="./jnu_files/picture(2).png" alt="">
+                        </a>
+                                              </div>
+                    
+                  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 配置传真号码作为新闻列表的控制切换 -->
+    <div class="faxNumber" style="display:none">
+    
+    <div id="faxNumber">OFF</div>
+    
+    </div>
+    <footer class="smallFooter">
+        <div class="logoBottom">
+            
+                
+                    
+                        <a href="https://www.jnu.edu.cn/main.htm">
+                            <img src="./jnu_files/logo_2.png" class="img-responsive">
+                        </a>
+                    
+                
+            
+        </div>
+        <p>
+            地址：中国 广州市 黄埔大道西601号
+        </p>
+        <p>
+            邮编：510632
+        </p>
+        <p>
+            <a href="https://www.jnu.edu.cn/">主页：https://www.jnu.edu.cn</a>
+        </p>
+        <p>
+            版权所有©暨南大学
+        </p>
+        <p>
+            <a href="http://beian.miit.gov.cn/" target="_blank">ICP备案号：粤ICP备 12087612号</a>
+        </p>
+        <p>
+            <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602001461" target="_blank"><img src="./jnu_files/under.png">粤公网安备 44010602001461号</a>
+        </p>
+    </footer>
+</div>
+<!--banner-->
+<script type="text/javascript" src="./jnu_files/jquery-jcarousel-min.js.下载"></script>
+<script type="text/javascript" src="./jnu_files/jcarousel-connected-carousels.js.下载"></script>
+<!-- 手机栏目滑动插件 -->
+<script type="text/javascript" src="./jnu_files/iscroll.js.下载"></script>
+<!-- <script type="text/javascript" src="/_upload/tpl/00/f5/245/template245/js/responsive1.js?r=19"></script> -->
+<script type="text/javascript" src="./jnu_files/responsive1.js.下载"></script>
+<script type="text/javascript" src="./jnu_files/replaceHomePageImg.js.下载"></script>
+<script type="text/javascript" src="./jnu_files/trans.js.下载"></script>
+
+<script type="text/javascript">
+$(function(){
+        // 迎新字体红色，就是右侧导航第一li标签字体变红色 
+	//$('.header-right > li:eq(0) > a').css({"color":"red"});
+})
+
+
+
+</script>
+
+
+
+
+
+
+ <img src="./jnu_files/_visitcount" style="display:none" width="0" height="0"></body></html>
