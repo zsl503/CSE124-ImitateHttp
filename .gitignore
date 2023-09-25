@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+submitprj1
+htdocs
+.vscode
+http
