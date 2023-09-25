@@ -42,6 +42,9 @@
         "thread": "cpp",
         "chrono": "cpp",
         "ctime": "cpp",
-        "ratio": "cpp"
-    }
+        "ratio": "cpp",
+        "string": "cpp",
+        "numeric": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }

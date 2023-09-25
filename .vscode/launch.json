@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/root/project1-master/httpd",
-            "args": ["6098","htdocs"],
+            "args": ["6096","htdocs"],
             "stopAtEntry": false,
             "cwd": "/root/project1-master",
             "environment": [],

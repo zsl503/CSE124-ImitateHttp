@@ -1,4 +1,6 @@
 #include "httpd.h"
+#include "HttpBuilder.h"
+#include "MessageParser.h"
 #include <fstream>
 #include <iostream>
 #include <netinet/in.h>
@@ -15,6 +17,7 @@
 using namespace std;
 
 #define THREAD_NUM 200
+
 std::map<std::string, std::string> CONTENT_TYPE_MAP = {
     {"html", "text/html;charset=utf-8;"},
     {"htm", "text/html;charset=utf-8;"},
@@ -31,32 +34,6 @@ std::map<std::string, std::string> CONTENT_TYPE_MAP = {
 };
 
 string DOC_ROOT = "";
-
-const string CLIENT_ERROR_STR = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>400 Client Error</title></head><body><h1>Client Error</h1><p>Your client has issued a malformed ot illegal request.</p></body></html>";
-const string NOT_ALLOWED_STR = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>405 Method Not Allowed</title></head><body><h1>Method Not Allowed</h1><p>The requested method %s is not allowed for the URL %s.</p></body></html>";
-const string NOT_FOUND_STR = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL %s was not found on this server.</p></body></html>";
-
-std::string urlDecode(std::string &SRC)
-{
-    std::string ret;
-    char ch;
-    unsigned int ii;
-    for (size_t i = 0; i < SRC.length(); i++)
-    {
-        if (int(SRC[i]) == 37)
-        {
-            sscanf(SRC.substr(i + 1, 2).c_str(), "%x", &ii);
-            ch = static_cast<char>(ii);
-            ret += ch;
-            i = i + 2;
-        }
-        else
-        {
-            ret += SRC[i];
-        }
-    }
-    return (ret);
-}
 
 void sendAll(int sockfd, const string &msg)
 {
@@ -97,26 +74,28 @@ bool vaildAddr(const string &addr)
     return true;
 }
 
-Http *handle_file(const string filename)
+HttpBuilder handle_file(const string filename)
 {
+    cout << "Request file:" << DOC_ROOT + filename << endl;
     std::ifstream in((DOC_ROOT + filename), std::ios::in);
     if (!in.is_open())
-        return new Http(Http::getNotFound(filename));
+        return HttpBuilder::getNotFound(filename);
     else
     {
         std::istreambuf_iterator<char> beg(in), end;
         string str(beg, end);
         in.close();
-        Http *h = new Http("OK", "200", "HTTP/1.1", std::map<string, string>(), str, false);
-        h->setContentLength(str.size());
-        h->setServer("CentOS");
+        HttpBuilder h = HttpBuilder("OK", "200", "HTTP/1.1", false)
+                            .setHeader("Content-Length", str.size())
+                            .setHeader("Server", "CentOS")
+                            .setBody(str);
 
         const size_t pos = filename.rfind(".");
         const string back = filename.substr(pos + 1);
         if (CONTENT_TYPE_MAP.find(back) != CONTENT_TYPE_MAP.end())
-            h->setContentType(CONTENT_TYPE_MAP[back]);
+            h.setHeader("Content-Type", CONTENT_TYPE_MAP[back]);
         else
-            h->setContentType("application/octet-stream");
+            h.setHeader("Content-Type", "application/octet-stream");
 
         struct stat result;
         if (stat((DOC_ROOT + filename).c_str(), &result) == 0)
@@ -125,16 +104,48 @@ Http *handle_file(const string filename)
             time(&mod_time); /*获取time_t类型的当前时间*/
             char *t = asctime(gmtime(&mod_time));
             t[strlen(t) - 1] = '\0';
-            h->setLastModified(t);
+            h.setHeader("Last-Modified", t);
         }
         else
-            return new Http(Http::getNotFound(filename));
+            return HttpBuilder::getNotFound(filename);
         return h;
     }
 }
 
-void handle_request(){
-    
+void handle_request(int client_socket, const HttpBuilder h)
+{
+    // 处理HTTP请求
+    HttpBuilder resp;
+    // 处理GET请求
+    if (h.meth == "")
+        resp = HttpBuilder::getClientError();
+
+    else if (h.meth == "GET")
+    {
+        if (!vaildAddr(h.getUrl().addr))
+            resp = HttpBuilder::getNotFound(h.getUrlStr());
+        else if (h.getHeader("Host") == "")
+            resp = HttpBuilder::getClientError();
+        else
+            try
+            {
+                resp = handle_file(h.getUrl().addr);
+            }
+            catch (const std::exception &e)
+            {
+                cerr << "catch:" << e.what();
+                resp = HttpBuilder::getNotFound(h.getUrlStr());
+            }
+    }
+    else
+        resp = HttpBuilder::getNotAllowed(h.meth, h.getUrlStr());
+
+    if (h.getHeader("Connection") == "")
+        resp.setHeader("Connection", "keep-alive");
+    else
+        resp.setHeader("Connection", h.getHeader("Connection"));
+
+    sendAll(client_socket, resp.toString());
 }
 
 void handle_client(int client_socket)
@@ -142,52 +153,48 @@ void handle_client(int client_socket)
     char buffer[BUFFER_SIZE + 1];
     ssize_t request_size;
     // 读取客户端发送的HTTP请求
-    while (true)
+    MessageParser mp;
+    struct timeval timeout = {3, 0};
+    setsockopt(client_socket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(struct timeval));
+    bool flag = true;
+    while (flag)
     {
         request_size = recv(client_socket, buffer, BUFFER_SIZE, 0);
 
         if (request_size == -1)
         {
-            perror("Receive failed");
-            close(client_socket);
-            return;
-        }
-
-        buffer[request_size] = '\0';
-
-        // 处理HTTP请求
-
-        Http h = Http::str2req(buffer);
-        Http *resp;
-        // 处理GET请求
-        if (h.meth == "")
-            resp = new Http(Http::getClientError());
-        else if (h.meth == "GET")
-        {
-
-            if (!vaildAddr(h.getUrl().addr))
-                resp = new Http(Http::getNotFound(h.getUrlStr()));
-            else if (h.header.find("Host") == h.header.end())
-            {
-                resp = new Http(Http::getClientError());
-            }
+            if (errno == EAGAIN || errno == EWOULDBLOCK)
+                continue;
             else
-                try
-                {
-                    resp = handle_file(h.getUrl().addr);
-                }
-                catch (const std::exception &e)
-                {
-                    cerr << "catch:" << e.what();
-                    resp = new Http(Http::getNotFound(h.getUrlStr()));
-                }
+            {
+                perror("Receive failed");
+                flag = false;
+            }
         }
-        else
+        else if (request_size < 0)
         {
-            resp = new Http(Http::getNotAllowed(h.meth, h.getUrlStr()));
+            sprintf(buffer, "Unknow socket error. Error code is %d.", errno);
+            perror(buffer);
+            flag = false;
         }
-        sendAll(client_socket, resp->toString());
-        delete resp;
+        else if(request_size > 0)
+        {
+            buffer[request_size] = '\0';
+
+            mp.pushMsg(buffer);
+            if (mp.empty())
+                continue;
+
+            HttpBuilder h = mp.popHttp();
+
+            if (h.getHeader("Connection") == "close")
+                flag = false;
+
+            // http1.1 中是半双工的，同个tcp连接不同报文不能并发，因此此处没有thread，http2进行tcp多路复用，才会用到thread
+            // new thread(handle_request, client_socket, h);
+
+            handle_request(client_socket, h);
+        }
     }
 
     // 关闭客户端套接字
@@ -256,193 +263,4 @@ void start_httpd(unsigned short port, string doc_root)
             cnt = 0;
         }
     }
-}
-
-Http::Http(const string meth_stat, const string url_code, const string ver, map<string, string> header, const string body, const bool isRequest) : meth(isRequest ? meth_stat : ""), ver(ver), header(header), body(body), code(isRequest ? "" : url_code), status(isRequest ? "" : meth_stat), isRequest(isRequest)
-{
-    if (isRequest)
-    {
-        if (url_code == "/")
-        {
-            this->url.addr = "/index.html";
-            this->urlstr = "/index.html";
-        }
-        else
-        {
-            this->urlstr = url_code;
-            const size_t pos = url_code.find('?');
-            if (pos == string::npos)
-                this->url.addr = url_code;
-            else
-            {
-                this->url.addr = url_code.substr(0, pos);
-                stringstream ss(url_code.substr(pos + 1));
-                string line;
-                while (getline(ss, line, '&'))
-                {
-                    const size_t p = line.find('=');
-                    if (p == string::npos)
-                        continue;
-                    else
-                        this->url.param[line.substr(0, p)] = line.substr(p + 1);
-                }
-            }
-        }
-    }
-}
-
-const string Http::toString(const Http &h)
-{
-    return h.toString();
-}
-
-const string Http::toString() const
-{
-    stringstream ss;
-    if (this->isRequest)
-        ss << this->meth << " " << this->urlstr << " " << this->ver << "\r\n";
-    else
-        ss << this->ver << " " << this->code << " " << this->status << "\r\n";
-
-    for (map<string, string>::const_iterator i = this->header.begin(); i != this->header.end(); i++)
-    {
-        ss << i->first << ":" << i->second << "\r\n";
-    }
-    ss << "\r\n"
-       << this->body;
-    return ss.str();
-}
-
-const URL &Http::getUrl() const
-{
-    return this->url;
-}
-
-const string &Http::getUrlStr() const
-{
-    return this->urlstr;
-}
-
-const Http Http::str2req(const string &req)
-{
-    try
-    {
-        string method, url, ver;
-        map<string, string> header;
-        string body;
-
-        stringstream ss(req);
-        ss >> method >> url >> ver;
-        url = urlDecode(url);
-        if (ver.find("HTTP/") == string::npos)
-            return Http("", "", "", {}, "", true);
-        string line;
-        getline(ss, line);
-
-        if (!(line.size() == 0 || line[0] == '\r'))
-            return Http("", "", "", {}, "", true);
-
-        while (getline(ss, line))
-        {
-            /* code */
-            if (line.at(line.size() - 1) == '\r')
-                line = line.substr(0, line.size() - 1);
-            if (0 == line.length())
-                break;
-            size_t pos = line.find(':');
-
-            if (pos == string::npos)
-                return Http("", "", "", {}, "", true);
-
-            header[line.substr(0, pos)] = line.substr(pos + 1);
-        }
-        ss >> body;
-        return Http(method, url, ver, header, body, true);
-    }
-    catch (const std::exception &e)
-    {
-        cerr << e.what() << endl;
-        return Http("", "", "", {}, "", true);
-    }
-}
-
-const Http Http::str2resp(const string &resp)
-{
-    string code, status, ver;
-    map<string, string> header;
-    string body;
-
-    stringstream ss(resp);
-    ss >> ver >> code >> status;
-    string line;
-    getline(ss, line);
-    while (getline(ss, line))
-    {
-        /* code */
-        if (line.at(line.size() - 1) == '\r')
-            line = line.substr(0, line.size() - 1);
-        if (0 == line.length())
-            break;
-        size_t pos = line.find(':');
-        header[line.substr(0, pos)] = line.substr(pos + 1);
-    }
-    ss >> body;
-    return Http(status, code, ver, header, body, false);
-}
-
-const Http Http::getNotFound(const string &url)
-{
-    const string &str = NOT_FOUND_STR;
-    char buffer[BUFFER_SIZE];
-    snprintf(buffer, str.size() + url.size(), str.c_str(), url.c_str());
-
-    Http h = Http("Not Found", "404", "HTTP/1.1", {}, buffer, false);
-    h.setContentLength(strlen(buffer));
-    h.setContentType("text/html;charset=utf-8");
-    h.setServer("CentOS");
-    return h;
-}
-
-const Http Http::getNotAllowed(const string &meth, const string &url)
-{
-    const string &str = NOT_ALLOWED_STR;
-    char buffer[BUFFER_SIZE];
-    snprintf(buffer, str.size() + url.size() + meth.size(), str.c_str(), meth.c_str(), url.c_str());
-
-    Http h = Http("Method Not Allowed", "405", "HTTP/1.1", {}, buffer, false);
-    h.setContentLength(strlen(buffer));
-    h.setContentType("text/html;charset=utf-8");
-    h.setServer("CentOS");
-    return h;
-}
-
-const Http Http::getClientError()
-{
-    Http h = Http("Client Error", "400", "HTTP/1.1", {}, CLIENT_ERROR_STR, false);
-    h.setContentLength(CLIENT_ERROR_STR.size());
-    h.setContentType("text/html;charset=utf-8");
-    h.setServer("CentOS");
-    return h;
-}
-
-void Http::setContentType(const string &type)
-{
-    this->header["Content-Type"] = type;
-}
-
-void Http::setContentLength(const unsigned long &len)
-{
-    stringstream s;
-    s << len;
-    this->header["Content-Length"] = s.str();
-}
-
-void Http::setServer(const string &server)
-{
-    this->header["Server"] = server;
-}
-
-void Http::setLastModified(const string &time)
-{
-    this->header["Last-Modified"] = time;
 }
