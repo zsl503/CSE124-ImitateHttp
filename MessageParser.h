@@ -1,28 +1,28 @@
 #ifndef MESSAGEPARSER_HPP
 #define MESSAGEPARSER_HPP
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/socket.h>
+#include "HttpBuilder.h"
 #include <arpa/inet.h>
-#include <string.h>
+#include <iostream>
+#include <netdb.h>
+#include <queue>
+#include <sstream>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
 #include <unistd.h>
-#include <netdb.h>
-#include <sstream>
-#include <queue>
-#include "HttpBuilder.h"
-#include <iostream>
 using namespace std;
 
 class MessageParser
 {
 public:
-    MessageParser(){}
-    void pushMsg(const char* msg);
+    MessageParser() {}
+    void pushMsg(const char *msg);
     HttpBuilder popHttp();
     bool empty() const;
+
 private:
     string receivedMessage = "";
     queue<HttpBuilder> httpQueue;

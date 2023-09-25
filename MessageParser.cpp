@@ -3,41 +3,36 @@
 
 void MessageParser::pushMsg(const char *msg)
 {
-    if(msg == NULL || strlen(msg) == 0)
+    if (msg == NULL || strlen(msg) == 0)
         return;
 
     receivedMessage.append(msg);
 
-    if (this->needSize == 0)
-    {
+    if (this->needSize == 0) {
         size_t pos;
-        if ((pos = receivedMessage.find("\r\n\r\n")) != string::npos)
-        {
+        if ((pos = receivedMessage.find("\r\n\r\n")) != string::npos) {
             httpQueue.push(HttpBuilder::str2req(receivedMessage.substr(0, pos)));
             // move pos to the end of the request header
             receivedMessage = receivedMessage.substr(pos + 4);
-            
+
             string need = httpQueue.back().getHeader("Content-Length");
-            if(need == "")
+            if (need == "")
                 this->needSize = 0;
             else
                 this->needSize = atoi(need.c_str());
-        }
-        else if ((pos = receivedMessage.find("\n\n")) != string::npos)
-        {
+        } else if ((pos = receivedMessage.find("\n\n")) != string::npos) {
             httpQueue.push(HttpBuilder::str2req(receivedMessage.substr(0, pos)));
             receivedMessage = receivedMessage.substr(pos + 2);
-            
+
             string need = httpQueue.back().getHeader("Content-Length");
-            if(need == "")
+            if (need == "")
                 this->needSize = 0;
             else
                 this->needSize = atoi(need.c_str());
         }
     }
 
-    if (this->needSize > 0 && receivedMessage.size() >= this->needSize)
-    {
+    if (this->needSize > 0 && receivedMessage.size() >= this->needSize) {
         string r = receivedMessage.substr(0, this->needSize);
         httpQueue.back().setBody(r);
         receivedMessage = receivedMessage.substr(this->needSize);
@@ -48,13 +43,10 @@ void MessageParser::pushMsg(const char *msg)
 HttpBuilder MessageParser::popHttp()
 {
     // TODO: insert return statement here
-    if (empty())
-    {
+    if (empty()) {
         cerr << "queue is empty" << endl;
         throw exception();
-    }
-    else
-    {
+    } else {
         HttpBuilder tmp = httpQueue.front();
         httpQueue.pop();
         return tmp;

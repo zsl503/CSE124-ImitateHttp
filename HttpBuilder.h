@@ -7,52 +7,51 @@
 
 #define BUFFER_SIZE 65536
 
-
-typedef struct URL{
+typedef struct URL {
     std::string addr;
     std::map<std::string, std::string> param;
-}URL;
+} URL;
 
 class HttpBuilder
 {
-    public:
+public:
     std::string meth;
     std::string ver;
     std::string code;
     std::string status;
     bool isRequest;
 
-    HttpBuilder():meth(""),ver(""),code(""),status(""),isRequest(true){}
+    HttpBuilder() : meth(""), ver(""), code(""), status(""), isRequest(true) {}
     HttpBuilder(const std::string meth_stat, const std::string url_code, const std::string ver, const bool isRequest);
     const URL &getUrl() const;
     const std::string &getUrlStr() const;
-    
-    HttpBuilder& setBody(const std::string&);
-    HttpBuilder& setHeader(const std::map<std::string,std::string> &header);
-    HttpBuilder& setHeader(const std::string key, const std::string value);
-    HttpBuilder& setHeader(const std::string key, const size_t&value);
-    HttpBuilder& setHeader(const std::string key, const int&value);
-    HttpBuilder& setHeader(const std::string key, const double&value);
-    
-    const std::string getBody() const ;
+
+    HttpBuilder &setBody(const std::string &);
+    HttpBuilder &setHeader(const std::map<std::string, std::string> &header);
+    HttpBuilder &setHeader(const std::string key, const std::string value);
+    HttpBuilder &setHeader(const std::string key, const size_t &value);
+    HttpBuilder &setHeader(const std::string key, const int &value);
+    HttpBuilder &setHeader(const std::string key, const double &value);
+
+    const std::string getBody() const;
     const std::string getHeader(const std::string key) const;
     const std::string toString() const;
-    static const std::string toString(const HttpBuilder&);
+    static const std::string toString(const HttpBuilder &);
 
-    static const HttpBuilder str2resp(const std::string& resp);
-    static const HttpBuilder str2req(const std::string&);
+    static const HttpBuilder str2resp(const std::string &resp);
+    static const HttpBuilder str2req(const std::string &);
 
     static HttpBuilder getNotFound(const std::string &url);
     static HttpBuilder getNotAllowed(const std::string &meth, const std::string &url);
     static HttpBuilder getClientError();
+    static HttpBuilder getForbidden(const string &src);
 
-    protected:
+protected:
     URL url;
     std::string body;
     std::string urlstr;
-    std::map<std::string,std::string> header;
+    std::map<std::string, std::string> header;
 };
-
 
 /**
  * @brief 解析URL

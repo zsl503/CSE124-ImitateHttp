@@ -7,7 +7,7 @@
  * @param addr url中的资源定位符部分，不含?后面内容
  * @return 验证成功与否
  */
-bool vaildAddr(const std::string &addr);
+bool vaildUrl(const std::string &url);
 
 /**
  * @brief 处理请求，接收客户端的http报文，解析并回复
@@ -20,7 +20,7 @@ void start_httpd(unsigned short port, std::string doc_root);
  * @brief 处理客户端socket连接请求，接收并回复来自客户端的http报文
  * @param client_socket socket文件描述符
  */
-void handle_client(int client_socket);
+void handle_client(int client_socket, struct sockaddr_in client_address);
 
 /**
  * @brief 请求文件，并返回文件报文
