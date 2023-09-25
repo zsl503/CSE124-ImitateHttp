@@ -1,6 +1,7 @@
 #include "httpd.h"
 #include "HttpBuilder.h"
 #include "MessageParser.h"
+#include "rulematch.h"
 #include <fstream>
 #include <iostream>
 #include <netinet/in.h>
@@ -13,13 +14,12 @@
 #include <sys/time.h>
 #include <thread>
 #include <unistd.h>
-#include "rulematch.h"
 
-using namespace std;
+using std::string;
 
 #define THREAD_NUM 200
 
-RuleList *ruleList;
+RuleList *RULE_LIST;
 
 std::map<std::string, std::string> CONTENT_TYPE_MAP = {
     {"html", "text/html;charset=utf-8;"},
@@ -107,20 +107,15 @@ HttpBuilder handle_file(const string filename)
     }
 }
 
-void handle_request(int client_socket, struct sockaddr_in client_address, const HttpBuilder h)
+void handle_request(int client_socket, const HttpBuilder h)
 {
     // 处理HTTP请求
     HttpBuilder resp;
     // 处理GET请求
-
-    if(!ruleList->pass(client_address.sin_addr.s_addr)){
-        string ip = inet_ntoa(client_address.sin_addr);
-        resp = HttpBuilder::getForbidden(ip);
-    }
-
-    if (h.meth == "")
+    if (h.getHeader("Host") == "")
+        resp = HttpBuilder::getClientError();\
+    else if (h.meth == "")
         resp = HttpBuilder::getClientError();
-
     else if (h.meth == "GET") {
         if (!vaildUrl(h.getUrl().addr))
             resp = HttpBuilder::getNotFound(h.getUrlStr());
@@ -136,11 +131,12 @@ void handle_request(int client_socket, struct sockaddr_in client_address, const 
     } else
         resp = HttpBuilder::getNotAllowed(h.meth, h.getUrlStr());
 
-    if(resp.getHeader("Connection")!="")
-        if (h.getHeader("Connection") == "" )
+    if (resp.getHeader("Connection") == "") {
+        if (h.getHeader("Connection") == "")
             resp.setHeader("Connection", "keep-alive");
         else
             resp.setHeader("Connection", h.getHeader("Connection"));
+    }
 
     sendAll(client_socket, resp.toString());
 }
@@ -149,11 +145,12 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
 {
     char buffer[BUFFER_SIZE + 1];
     ssize_t request_size;
-    // 读取客户端发送的HTTP请求
     MessageParser mp;
     struct timeval timeout = {3, 0};
-    setsockopt(client_socket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(struct timeval));
     bool flag = true;
+
+    setsockopt(client_socket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(struct timeval));
+
     while (flag) {
         request_size = recv(client_socket, buffer, BUFFER_SIZE, 0);
 
@@ -161,12 +158,11 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
             if (errno == EAGAIN || errno == EWOULDBLOCK)
                 continue;
             else {
-                perror("Receive failed");
+                std::cerr << "Receive failed" << endl;
                 flag = false;
             }
         } else if (request_size < 0) {
-            sprintf(buffer, "Unknow socket error. Error code is %d.", errno);
-            perror(buffer);
+            std::cerr << "Unknow socket error. Error code is " << errno << "." << endl;
             flag = false;
         } else if (request_size > 0) {
             buffer[request_size] = '\0';
@@ -180,10 +176,14 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
             if (h.getHeader("Connection") == "close")
                 flag = false;
 
+            string falseStr;
+            if (RULE_LIST && !RULE_LIST->pass(client_address, falseStr)) {
+                sendAll(client_socket, HttpBuilder::getForbidden(falseStr).toString());
+            }
+
             // http1.1 中是半双工的，同个tcp连接不同报文不能并发，因此此处没有thread，http2进行tcp多路复用，才会用到thread
             // new thread(handle_request, client_socket, h);
-
-            handle_request(client_socket, client_address, h);
+            handle_request(client_socket, h);
         }
     }
 
@@ -195,10 +195,12 @@ void start_httpd(unsigned short port, string doc_root)
 {
     typedef struct sockaddr *SP;
 
-    cerr << "Starting server (port: " << port << ", doc_root: " << doc_root << ")" << endl;
+    if (doc_root[doc_root.size() - 1] == '/')
+        doc_root = doc_root.substr(0, doc_root.size() - 1);
     DOC_ROOT = doc_root;
-    if (DOC_ROOT[DOC_ROOT.size() - 1] == '/')
-        DOC_ROOT = DOC_ROOT.substr(0, DOC_ROOT.size() - 1);
+
+    cerr << "Starting server (port: " << port << ", doc_root: " << doc_root << ")" << endl;
+
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
     if (0 > sockfd) {
@@ -226,13 +228,21 @@ void start_httpd(unsigned short port, string doc_root)
     }
 
     struct sockaddr_in client_address;
-
     int cnt = 0;
     thread th[THREAD_NUM];
+    RULE_LIST = RuleList::getFromFile(doc_root + "/.htaccess");
+    if (RULE_LIST == nullptr)
+        std::cerr << "Can't open or read the .htaccess file" << endl;
+
     while (true) {
         // 等待连接
         int clifd;
         if (0 <= (clifd = accept(sockfd, (SP)&client_address, &addrlen))) {
+            // 输出来访的客户端地址
+            char ip[INET_ADDRSTRLEN];
+            inet_ntop(AF_INET, &client_address.sin_addr, ip, INET_ADDRSTRLEN);
+            cout << "Accept a connection from: " << ip << ":" << ntohs(client_address.sin_port) << endl;
+
             th[cnt++] = thread(handle_client, clifd, client_address);
             // handle_client(clifd);
             // pthread_t client_thread;
@@ -246,4 +256,6 @@ void start_httpd(unsigned short port, string doc_root)
             cnt = 0;
         }
     }
+    delete RULE_LIST;
+    return;
 }

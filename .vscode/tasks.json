@@ -5,7 +5,7 @@
             "label": "build",
             "command": "make",
             "options": {
-                "cwd": "/root/project1-master/"
+                "cwd": "/data/coder/project/project1-master"
             },
             "problemMatcher": [
                 "$gcc"

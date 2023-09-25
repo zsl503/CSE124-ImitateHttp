@@ -1,5 +1,5 @@
-#ifndef RULE_LIST_H
-#define RULE_LIST_H
+#ifndef RULE_MATCH_H
+#define RULE_MATCH_H
 
 #include <string>
 #include <vector>
@@ -7,33 +7,36 @@
 class Rule
 {
 public:
-    Rule(const std::string &rule);
-    bool pass(const std::string &url);
-
+    Rule(bool isAllow, const std::string &item);
+    bool pass(const std::string &host) const;
+    bool pass(const u_int32_t &addr) const;
+    bool isHostRule() const;
+    bool isIpRule() const;
+    bool allowRule() const;
+    bool denyRule() const;
 private:
-    std::string rule;
+    const bool isAllow;
     std::string host;
     u_int32_t address;
     u_int32_t mask;
-    bool isDeny;
 };
 
 class RuleList
 {
 public:
-    RuleList(const std::string &list);
+    RuleList(bool allowFirst): allowFirst(allowFirst) {}
     bool addRule(const std::string &rule);
     bool addRule(const Rule &rule);
 
-    bool pass(const std::string &host);
-
-    bool pass(const u_int32_t &address);
+    bool pass(const struct sockaddr_in &address, std::string &falseRes) const;
 
     static RuleList *getFromFile(const std::string &path);
 
 private:
-    bool allowFirst;
-    std::vector<Rule> hostRules, ipRules;
+    const bool allowFirst;
+    std::vector<Rule> hostAllowRules, ipAllowRules;
+    std::vector<Rule> hostDenyRules, ipDenyRules;
+    bool pass(const std::string &host) const;
 };
 
-#endif // RULE_LIST_H
+#endif // RULE_MATCH_H

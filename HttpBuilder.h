@@ -44,7 +44,7 @@ public:
     static HttpBuilder getNotFound(const std::string &url);
     static HttpBuilder getNotAllowed(const std::string &meth, const std::string &url);
     static HttpBuilder getClientError();
-    static HttpBuilder getForbidden(const string &src);
+    static HttpBuilder getForbidden(const std::string &src);
 
 protected:
     URL url;

@@ -3,7 +3,11 @@
 #include <sstream>
 #include <string.h>
 
-using namespace std;
+using std::string;
+using std::stringstream;
+using std::map;
+using std::endl;
+using std::cerr;
 
 const string CLIENT_ERROR_STR = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>400 Client Error</title></head><body><h1>Client Error</h1><p>Your client has issued a malformed ot illegal request.</p></body></html>";
 const string NOT_ALLOWED_STR = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"><html><head><title>405 Method Not Allowed</title></head><body><h1>Method Not Allowed</h1><p>The requested method %s is not allowed for the URL %s.</p></body></html>";
