@@ -151,6 +151,9 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
     bool flag = true;
 
     setsockopt(client_socket, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(struct timeval));
+    
+    string falseStr;
+    bool isAccess = RULE_LIST? RULE_LIST->pass(client_address, falseStr):true;
 
     while (flag) {
         request_size = recv(client_socket, buffer, BUFFER_SIZE, 0);
@@ -166,25 +169,26 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
             std::cerr << "Unknow socket error. Error code is " << errno << "." << endl;
             flag = false;
         } else if (request_size > 0) {
-            buffer[request_size] = '\0';
+            if(isAccess){
+                buffer[request_size] = '\0';
 
-            mp.pushMsg(buffer);
-            if (mp.empty())
-                continue;
+                mp.pushMsg(buffer);
+                if (mp.empty())
+                    continue;
 
-            HttpBuilder h = mp.popHttp();
+                HttpBuilder h = mp.popHttp();
 
-            if (h.getHeader("Connection") == "close")
-                flag = false;
+                if (h.getHeader("Connection") == "close")
+                    flag = false;
 
-            string falseStr;
-            if (RULE_LIST && !RULE_LIST->pass(client_address, falseStr)) {
+                // http1.1 中是半双工的，同个tcp连接不同报文不能并发，因此此处没有thread，http2进行tcp多路复用，才会用到thread
+                // new thread(handle_request, client_socket, h);
+                handle_request(client_socket, h);                
+            }
+            else{
                 sendAll(client_socket, HttpBuilder::getForbidden(falseStr).toString());
             }
 
-            // http1.1 中是半双工的，同个tcp连接不同报文不能并发，因此此处没有thread，http2进行tcp多路复用，才会用到thread
-            // new thread(handle_request, client_socket, h);
-            handle_request(client_socket, h);
         }
     }
 
