@@ -14,7 +14,7 @@ void usage(char *argv0)
 int main(int argc, char *argv[])
 {
 
-    if (argc != 3 && argc != 4) {
+    if (argc != 3 && argc != 4 && argc != 5) {
         usage(argv[0]);
         return 1;
     }
@@ -33,14 +33,21 @@ int main(int argc, char *argv[])
 
     string doc_root = argv[2];
 
-    if (argc == 4)
+    if (argc == 4 || argc == 3)
     {
-        int thread_num = stoi(argv[3]);
-        start_httpd(port, doc_root, thread_num);
-    }
-    else
-    {
+        if(argc == 4 && string(argv[3]) != "nopool"){
+            cerr << "Invalid input: " << argv[3] << endl;
+            return 4;
+        }
         start_httpd(port, doc_root);
+    }
+    else if(argc == 5)
+    {
+        if(argv[3] != string("pool")){
+            cerr << "Invalid input: " << argv[3] << endl;
+            return 5;
+        }
+        start_httpd(port, doc_root, stoi(argv[4]));
     }
 
     return 0;
