@@ -14,7 +14,7 @@ bool vaildUrl(const std::string &url);
  * @param req 请求的串
  * @param client_socket socket文件描述符 
  */
-void start_httpd(unsigned short port, std::string doc_root);
+void start_httpd(unsigned short port, std::string doc_root, int thread_num = 0);
 
 /**
  * @brief 处理客户端socket连接请求，接收并回复来自客户端的http报文

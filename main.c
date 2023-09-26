@@ -14,7 +14,7 @@ void usage(char *argv0)
 int main(int argc, char *argv[])
 {
 
-    if (argc != 3) {
+    if (argc != 3 && argc != 4) {
         usage(argv[0]);
         return 1;
     }
@@ -33,7 +33,15 @@ int main(int argc, char *argv[])
 
     string doc_root = argv[2];
 
-    start_httpd(port, doc_root);
+    if (argc == 4)
+    {
+        int thread_num = stoi(argv[3]);
+        start_httpd(port, doc_root, thread_num);
+    }
+    else
+    {
+        start_httpd(port, doc_root);
+    }
 
     return 0;
 }

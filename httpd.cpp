@@ -12,15 +12,13 @@
 #include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/time.h>
-#include <thread>
+#include "threadpool.h"
 #include <unistd.h>
 
 using std::string;
 using std::endl;
 using std::cout;
 using std::stringstream;
-
-#define THREAD_NUM 200
 
 RuleList *RULE_LIST;
 
@@ -194,7 +192,7 @@ void handle_client(int client_socket, struct sockaddr_in client_address)
     close(client_socket);
 }
 
-void start_httpd(unsigned short port, string doc_root)
+void start_httpd(unsigned short port, string doc_root, int thread_num)
 {
     typedef struct sockaddr *SP;
 
@@ -230,9 +228,12 @@ void start_httpd(unsigned short port, string doc_root)
         return;
     }
 
+    std::threadpool *tp = nullptr;
     struct sockaddr_in client_address;
-    int cnt = 0;
-    std::thread th[THREAD_NUM];
+    if(thread_num > 0){
+        tp = new std::threadpool(thread_num);   
+    }
+    
     RULE_LIST = RuleList::getFromFile(doc_root + "/.htaccess");
     if (RULE_LIST == nullptr)
         std::cerr << "Can't open or read the .htaccess file" << endl;
@@ -245,20 +246,15 @@ void start_httpd(unsigned short port, string doc_root)
             char ip[INET_ADDRSTRLEN];
             inet_ntop(AF_INET, &client_address.sin_addr, ip, INET_ADDRSTRLEN);
             cout << "Accept a connection from: " << ip << ":" << ntohs(client_address.sin_port) << endl;
-
-            th[cnt++] = std::thread(handle_client, clifd, client_address);
-            // handle_client(clifd);
-            // pthread_t client_thread;
-            // pthread_create(&client_thread, NULL, (void *(*)(void *))handle_client, (void *)clifd);
+            
+            if(tp != nullptr)
+                tp->commit(handle_client, clifd, client_address);
+            else
+                std::thread(handle_client, clifd, client_address).detach();
         } else
             perror("accept error");
-
-        if (cnt == THREAD_NUM) {
-            for (int i = 0; i < THREAD_NUM; i++)
-                th[i].join();
-            cnt = 0;
-        }
     }
     delete RULE_LIST;
+    delete tp;
     return;
 }
