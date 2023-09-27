@@ -2,6 +2,8 @@
 #define HTTPD_H
 
 #include "HttpBuilder.h"
+#include "MessageParser.h"
+#include <string>
 /**
  * @brief 验证http报文中url请求资源的合法性，主要为是否利用".."请求到上级目录
  * @param addr url中的资源定位符部分，不含?后面内容
@@ -19,9 +21,10 @@ void start_httpd(unsigned short port, std::string doc_root, int thread_num = 0);
 /**
  * @brief 处理客户端socket连接请求，接收并回复来自客户端的http报文
  * @param client_socket socket文件描述符
- * @param sockaddr_in 客户端地址
+ * @param MessageParser 报文解析器
+ * @param buffer 新来的信息存在缓存
  */
-void handle_client(int client_socket, struct sockaddr_in client_address);
+void handle_client(int client_socket, MessageParser mp, std::string buffer);
 
 /**
  * @brief 请求文件，并返回文件报文

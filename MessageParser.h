@@ -18,7 +18,7 @@ class MessageParser
 {
 public:
     MessageParser() {}
-    void pushMsg(const char *msg);
+    void pushMsg(const std::string &msg);
     HttpBuilder popHttp();
     bool empty() const;
 

@@ -2,9 +2,9 @@
 #include <iostream>
 using std::string;
 
-void MessageParser::pushMsg(const char *msg)
+void MessageParser::pushMsg(const string& msg)
 {
-    if (msg == NULL || strlen(msg) == 0)
+    if (msg.size() == 0)
         return;
 
     receivedMessage.append(msg);

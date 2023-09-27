@@ -8,10 +8,11 @@
 #include <future>
 #include <stdexcept>
 
-namespace std
+namespace threadpool
 {
+	using namespace std;
 //线程池最大容量,应尽量设小一点
-#define  THREADPOOL_MAX_NUM 16
+#define  THREADPOOL_MAX_NUM 100
 
 //线程池,可以提交变参函数或拉姆达表达式的匿名函数执行,可以获取执行返回值
 //不直接支持类成员函数, 支持类静态成员函数或全局函数,Opteron()函数等
